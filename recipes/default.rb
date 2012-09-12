@@ -42,7 +42,7 @@ package "pwgen"
 
 # get source
 execute "git_clone" do
-  command "git clone #{node[:freeswitch][:git_uri]}"
+  command "git clone -b #{node[:freeswitch][:git_branch]} #{node[:freeswitch][:git_uri]}"
   cwd "/usr/local/src"
   creates "/usr/local/src/freeswitch"
 end
