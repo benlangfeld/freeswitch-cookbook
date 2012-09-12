@@ -172,6 +172,13 @@ template "#{node[:freeswitch][:homedir]}/conf/dialplan/default.xml" do
   mode 0755
 end
 
+template "#{node[:freeswitch][:homedir]}/conf/autoload_configs/event_socket.conf.xml" do
+  source "event_socket.conf.xml.erb"
+  owner node[:freeswitch][:user]
+  group node[:freeswitch][:group]
+  mode 0755
+end
+
 #template "" do
 #  source "modules.conf.xml.erb"
 #  owner node[:freeswitch][:user]
