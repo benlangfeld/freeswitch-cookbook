@@ -21,7 +21,7 @@
 ## ZRTP media pass-through proxy mode
 
 ## Build requirements
-package "autoconf" 
+package "autoconf"
 package "automake"
 package "g++"
 package "git-core"
