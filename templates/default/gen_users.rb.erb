@@ -86,6 +86,51 @@ user_list = ""
   puts concise_string
 end
 puts "Finished creating XML #{ last - first } users"
+
+#Extra users for 11 digit numbers
+[11111111111, 22222222222].each do |i|
+  pw = `#{pwgen} -nc`.chop!
+  hash = `echo -n #{i.to_s}:#{domain}:#{pw} | #{openssl} dgst -md5 | cut -d " " -f 2`.chop!
+  config = {
+    "user"=> {
+      i.to_s => {
+      "mailbox" => i.to_s,
+      "variables" => [{
+        "variable" => [{
+        "name" => "accountcode",
+        "value"=> i.to_s
+      },
+      {
+        "name" => "user_context",
+        "value" => "default"
+      },
+      {
+        "name" => "effective_caller_id_name",
+        "value" => "Extension #{i.to_s}"
+      },
+      {
+        "name" => "effective_caller_id_number",
+        "value" => i.to_s
+      }]}],
+      "params" => [{
+        "param" => [{
+          "name" => "a1-hash",
+          "value" => hash 
+        },
+        {
+          "name" => "vm-password",
+          "value" => hash
+        }]}]
+      }
+    }
+  }
+  xml_config = XmlSimple.xml_out(config, { 'KeyAttr' => 'id', 'RootName' => "include" })
+  fh = File.new( "#{i.to_s}.xml", "w")
+  fh.write(xml_config)
+  fh.close
+  concise_string = i.to_s + ":" + pw
+  user_list << concise_string + "\n"
+end
 #
 # Write full list of usernames and passwords in a more concise format, perhaps
 # for an admin to encrypt and carry around
