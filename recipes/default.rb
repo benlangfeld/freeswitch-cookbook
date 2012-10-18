@@ -170,6 +170,8 @@ template "#{node[:freeswitch][:homedir]}/conf/dialplan/default.xml" do
   owner node[:freeswitch][:user]
   group node[:freeswitch][:group]
   mode 0755
+  variables :head_fragments => node[:freeswitch][:dialplan][:head_fragments],
+            :tail_fragments => node[:freeswitch][:dialplan][:tail_fragments]
 end
 
 template "#{node[:freeswitch][:homedir]}/conf/autoload_configs/event_socket.conf.xml" do

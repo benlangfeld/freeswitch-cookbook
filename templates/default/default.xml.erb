@@ -13,6 +13,8 @@
 <include>
   <context name="default">
 
+    <%= @head_fragments %>
+
     <extension name="unloop">
       <condition field="${unroll_loops}" expression="^true$"/>
       <condition field="${sip_looped_call}" expression="^true$">
@@ -185,6 +187,7 @@
       </condition>
     </extension>
     -->
+    <%= @tail_fragments %>
 
   </context>
 </include>

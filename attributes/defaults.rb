@@ -12,3 +12,5 @@ default[:freeswitch][:homedir] = "/usr/local/freeswitch"
 default[:freeswitch][:tls_only] = "true"
 default[:freeswitch][:domain] = node[:fqdn]
 default[:freeswitch][:local_ip] = '127.0.0.1'
+default[:freeswitch][:dialplan][:head_fragments] = []
+default[:freeswitch][:dialplan][:tail_fragments] = []
