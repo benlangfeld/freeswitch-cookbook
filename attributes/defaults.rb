@@ -14,3 +14,8 @@ default[:freeswitch][:domain] = node[:fqdn]
 default[:freeswitch][:local_ip] = '127.0.0.1'
 default[:freeswitch][:dialplan][:head_fragments] = ''
 default[:freeswitch][:dialplan][:tail_fragments] = ''
+default[:freeswitch][:dialplan][:public_head_fragments] = ''
+default[:freeswitch][:dialplan][:public_tail_fragments] = ''
+default[:freeswitch][:acl][:domains] = ''
+default[:freeswitch][:extra_sip_profiles] = []
+default[:freeswitch][:sip_profiles][:internal][:extra_settings] = '<param name="apply-nat-acl" value="nat.auto"/>\n<param name="ext-rtp-ip" value="auto-nat"/>\n<param name="ext-sip-ip" value="auto-nat"/>'

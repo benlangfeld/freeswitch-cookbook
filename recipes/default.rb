@@ -138,6 +138,7 @@ template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/internal.xml" do
   group node[:freeswitch][:group]
   source "internal.xml.erb"
   mode 0644
+  variables :extra_settings => node[:freeswitch][:sip_profiles][:internal][:extra_settings]
   notifies :restart, "service[#{node[:freeswitch][:service]}]"
 end
 
@@ -179,6 +180,34 @@ template "#{node[:freeswitch][:homedir]}/conf/autoload_configs/event_socket.conf
   owner node[:freeswitch][:user]
   group node[:freeswitch][:group]
   mode 0755
+end
+
+template "#{node[:freeswitch][:homedir]}/conf/autoload_configs/acl.conf.xml" do
+  source "acl.conf.xml.erb"
+  owner node[:freeswitch][:user]
+  group node[:freeswitch][:group]
+  mode 0755
+  variables :acl_domains => node[:freeswitch][:acl][:domains]
+end
+
+template "#{node[:freeswitch][:homedir]}/conf/dialplan/public.xml" do
+  source "public.xml.erb"
+  owner node[:freeswitch][:user]
+  group node[:freeswitch][:group]
+  mode 0755
+  variables :public_head_fragments => node[:freeswitch][:dialplan][:public_head_fragments],
+            :public_tail_fragments => node[:freeswitch][:dialplan][:public_tail_fragments]
+end
+
+node[:freeswitch][:extra_sip_profiles].each do |p|
+  template "#{node[:freeswitch][:homedir]}/sip_profiles/#{p[:folder]}/#{p[:file_name]}.xml" do
+    source "sip_profile_tpl.xml.erb"
+    owner node[:freeswitch][:user]
+    group node[:freeswitch][:group]
+    mode 0755
+    variables :profile_name => p[:profile_name],
+              :contents => p[:contents]
+  end
 end
 
 #template "" do
