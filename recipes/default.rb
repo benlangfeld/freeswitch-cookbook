@@ -200,7 +200,7 @@ template "#{node[:freeswitch][:homedir]}/conf/dialplan/public.xml" do
 end
 
 node[:freeswitch][:extra_sip_profiles].each do |p|
-  template "#{node[:freeswitch][:homedir]}/sip_profiles/#{p[:folder]}/#{p[:file_name]}.xml" do
+  template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/#{p[:folder]}/#{p[:file_name]}.xml" do
     source "sip_profile_tpl.xml.erb"
     owner node[:freeswitch][:user]
     group node[:freeswitch][:group]
