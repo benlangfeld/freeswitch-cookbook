@@ -133,6 +133,30 @@ template "#{node[:freeswitch][:homedir]}/conf/vars.xml" do
   mode 0644
 end
 
+# set SIP security attributes for registered users
+template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/internal.xml" do
+  owner node[:freeswitch][:user]
+  group node[:freeswitch][:group]
+  source "internal.xml.erb"
+  mode 0644
+  variables :extra_settings => node[:freeswitch][:sip_profiles][:internal][:extra_settings]
+end
+
+template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/internal-ipv6.xml" do
+  owner node[:freeswitch][:user]
+  group node[:freeswitch][:group]
+  source "internal-ipv6.xml.erb"
+  mode 0644
+end
+
+# set SIP security attributes for external users
+template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/external.xml" do
+  owner node[:freeswitch][:user]
+  group node[:freeswitch][:group]
+  source "external.xml.erb"
+  mode 0644
+end
+
 template "#{node[:freeswitch][:homedir]}/scripts/gen_users" do
   source "gen_users.rb.erb"
   owner node[:freeswitch][:user]
@@ -198,4 +222,8 @@ template "#{node[:freeswitch][:homedir]}/conf/autoload_configs/rayo.conf.xml" do
   group node[:freeswitch][:group]
   mode 0755
   notifies :restart, "service[#{node[:freeswitch][:service]}]"
+end
+
+service node[:freeswitch][:service] do
+  action [:restart]
 end
