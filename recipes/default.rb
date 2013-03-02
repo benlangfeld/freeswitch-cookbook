@@ -34,6 +34,7 @@ package "gawk"
 package "pkg-config"
 package "gnutls-bin"
 package "libsqlite3-dev"
+package "bison"
 ## install packages for mod_shout for mp3 playback
 
 # user generation dependencies
