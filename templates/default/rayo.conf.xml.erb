@@ -1,0 +1,26 @@
+<configuration name="rayo.conf" description="Rayo server config">
+
+  <!-- global params -->
+  <settings>
+    <param name="max-idle-sec" value="300"/>
+  </settings>
+
+  <!-- Listeners for new Rayo client connections -->
+  <listeners>
+    <listener>$${local_ip_v4}</listener>
+  </listeners>
+
+  <!-- default gateways per URI -->
+  <dial-gateways>
+    <dial-gateway uriprefix="default" dialprefix="sofia/gateway/outbound/" strip="0"/>
+    <dial-gateway uriprefix="tel:" dialprefix="sofia/gateway/outbound/" strip="4"/>
+    <!-- pass through user and sofia unaltered -->
+    <dial-gateway uriprefix="user" dialprefix="" strip=""/>
+    <dial-gateway uriprefix="sofia" dialprefix="" strip=""/>
+  </dial-gateways>
+
+  <!-- Authorized users -->
+  <users>
+    <user name="usera" password="1"/>
+  </users>
+</configuration>

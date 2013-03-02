@@ -210,10 +210,18 @@ node[:freeswitch][:extra_sip_profiles].each do |p|
   end
 end
 
-#template "" do
-#  source "modules.conf.xml.erb"
-#  owner node[:freeswitch][:user]
-#  group node[:freeswitch][:group]
-#  mode 0644
-#  notifies :restart, "service[#{node[:freeswitch][:service]}]"
-#end
+template "#{node[:freeswitch][:homedir]}/conf/autoload_configs/modules.conf.xml" do
+  source "modules.conf.xml.erb"
+  owner node[:freeswitch][:user]
+  group node[:freeswitch][:group]
+  mode 0755
+  notifies :restart, "service[#{node[:freeswitch][:service]}]"
+end
+
+template "#{node[:freeswitch][:homedir]}/conf/autoload_configs/rayo.conf.xml" do
+  source "rayo.conf.xml.erb"
+  owner node[:freeswitch][:user]
+  group node[:freeswitch][:group]
+  mode 0755
+  notifies :restart, "service[#{node[:freeswitch][:service]}]"
+end
