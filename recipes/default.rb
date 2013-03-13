@@ -61,6 +61,7 @@ script "compile_freeswitch" do
   ./configure
   make clean
   make
+  make config-rayo
   make install
   make samples
 EOF
@@ -131,33 +132,6 @@ template "#{node[:freeswitch][:homedir]}/conf/vars.xml" do
   group node[:freeswitch][:group]
   source "vars.xml.erb"
   mode 0644
-end
-
-# set SIP security attributes for registered users
-template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/internal.xml" do
-  owner node[:freeswitch][:user]
-  group node[:freeswitch][:group]
-  source "internal.xml.erb"
-  mode 0644
-  variables :extra_settings => node[:freeswitch][:sip_profiles][:internal][:extra_settings]
-  notifies :restart, "service[#{node[:freeswitch][:service]}]"
-end
-
-template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/internal-ipv6.xml" do
-  owner node[:freeswitch][:user]
-  group node[:freeswitch][:group]
-  source "internal-ipv6.xml.erb"
-  mode 0644
-  notifies :restart, "service[#{node[:freeswitch][:service]}]"
-end
-
-# set SIP security attributes for external users
-template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/external.xml" do
-  owner node[:freeswitch][:user]
-  group node[:freeswitch][:group]
-  source "external.xml.erb"
-  mode 0644
-  notifies :restart, "service[#{node[:freeswitch][:service]}]"
 end
 
 template "#{node[:freeswitch][:homedir]}/scripts/gen_users" do
