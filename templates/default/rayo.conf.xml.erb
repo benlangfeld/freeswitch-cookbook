@@ -3,6 +3,7 @@
   <!-- global params -->
   <settings>
     <param name="max-idle-sec" value="300"/>
+    <param name="mixer-conf-profile" value="sla"/>
   </settings>
 
   <!-- Listeners for new Rayo client connections -->
@@ -15,6 +16,7 @@
   <dial-gateways>
     <dial-gateway uriprefix="default" dialprefix="sofia/gateway/outbound/" strip="0"/>
     <dial-gateway uriprefix="tel:" dialprefix="sofia/gateway/outbound/" strip="4"/>
+    <dial-gateway uriprefix="sip:" dialprefix="sofia/external/" strip="0"/>
     <!-- pass through user and sofia unaltered -->
     <dial-gateway uriprefix="user" dialprefix="" strip=""/>
     <dial-gateway uriprefix="sofia" dialprefix="" strip=""/>
