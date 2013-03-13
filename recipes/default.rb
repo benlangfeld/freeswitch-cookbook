@@ -63,7 +63,6 @@ script "compile_freeswitch" do
   make
   make config-rayo
   make install
-  make samples
 EOF
   not_if "test -f #{node[:freeswitch][:path]}/freeswitch"
 end
