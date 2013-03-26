@@ -9,7 +9,7 @@
   <!-- Listeners for new Rayo client connections -->
   <listeners>
     <% @listeners.each do |address, port| %>
-      <listener<%= " port=#{port}" if port %>><%= address %></listener>
+      <listener<%= " port=\"#{port}\"" if port %>><%= address %></listener>
     <% end %>
   </listeners>
 
