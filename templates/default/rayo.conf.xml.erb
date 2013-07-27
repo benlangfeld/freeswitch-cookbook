@@ -6,25 +6,40 @@
     <param name="mixer-conf-profile" value="sla"/>
   </settings>
 
-  <!-- Listeners for new Rayo client connections -->
-  <listeners>
-    <% @listeners.each do |address, port| %>
-      <listener<%= " port=\"#{port}\"" if port %>><%= address %></listener>
-    <% end %>
-  </listeners>
+  <!-- record component params -->
+  <record>
+    <param name="record-file-prefix" value="$${recordings_dir}/"/>
+  </record>
 
-  <!-- default gateways per URI -->
+  <!-- XMPP server domain -->
+  <domain name="$${rayo_domain_name}" shared-secret="ClueCon">
+  <!-- use this instead if you want secure XMPP client to server connections.  Put .crt and .key file in freeswitch/certs -->
+  <!--domain name="$${rayo_domain_name}" shared-secret="ClueCon" cert="$${base_dir}/certs/$${rayo_domain_name}.crt" key="$${base_dir}/certs/$${rayo_domain_name}.key"-->
+
+    <!-- Listeners for new Rayo client connections -->
+    <!--listen type="c2s" port="5222" address="$${local_ip_v4}" acl="rayo-clients"/-->
+    <listen type="c2s" port="5222" address="$${rayo_ip}" acl=""/>
+
+    <!-- Listeners for new server connections -->
+    <!--listen type="s2s" port="5269" address="$${local_ip_v4}" acl="rayo-servers"/-->
+
+    <!-- servers to connect to -->
+    <!--connect port="5269" address="node.example.com" domain="example.com"/-->
+
+    <!-- Authorized users -->
+    <users>
+      <user name="usera" password="1"/>
+    </users>
+  </domain>
+
+  <!-- URI mapping to endpoint / gateway -->
   <dial-gateways>
     <dial-gateway uriprefix="default" dialprefix="sofia/gateway/outbound/" strip="0"/>
-    <dial-gateway uriprefix="tel:" dialprefix="sofia/gateway/outbound/" strip="4"/>
     <dial-gateway uriprefix="sip:" dialprefix="sofia/external/" strip="0"/>
+    <dial-gateway uriprefix="tel:" dialprefix="sofia/gateway/outbound/" strip="4"/>
     <!-- pass through user and sofia unaltered -->
     <dial-gateway uriprefix="user" dialprefix="" strip=""/>
     <dial-gateway uriprefix="sofia" dialprefix="" strip=""/>
   </dial-gateways>
 
-  <!-- Authorized users -->
-  <users>
-    <user name="usera" password="1"/>
-  </users>
 </configuration>
