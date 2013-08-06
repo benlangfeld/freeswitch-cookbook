@@ -170,7 +170,7 @@
        If unspecified, the bind_server_ip value is used.
        Used by: sofia.conf.xml dingaling.conf.xml
   -->
-  <X-PRE-PROCESS cmd="set" data="external_rtp_ip=stun:stun.freeswitch.org"/>
+  <X-PRE-PROCESS cmd="set" data="external_rtp_ip=$${local_ip_v4}"/>
 
   <!-- external_sip_ip
       Used as the public IP address for SDP.
@@ -183,7 +183,7 @@
        If unspecified, the bind_server_ip value is used.
        Used by: sofia.conf.xml dingaling.conf.xml
   -->
-  <X-PRE-PROCESS cmd="set" data="external_sip_ip=stun:stun.freeswitch.org"/>
+  <X-PRE-PROCESS cmd="set" data="external_sip_ip=$${local_ip_v4}"/>
 
   <!-- unroll-loops
        Used to turn on sip loopback unrolling.
@@ -237,33 +237,12 @@
   <X-PRE-PROCESS cmd="set" data="bong-ring=v=-7;%(100,0,941.0,1477.0);v=-7;>=2;+=.1;%(1400,0,350,440)"/>
   <X-PRE-PROCESS cmd="set" data="sit=%(274,0,913.8);%(274,0,1370.6);%(380,0,1776.7)"/>
   <!--
-      Setting up your default sip provider is easy.
-      Below are some values that should work in most cases.
-
-      These are for conf/directory/default/example.com.xml
-  -->
-  <X-PRE-PROCESS cmd="set" data="default_provider=example.com"/>
-  <X-PRE-PROCESS cmd="set" data="default_provider_username=joeuser"/>
-  <X-PRE-PROCESS cmd="set" data="default_provider_password=password"/>
-  <X-PRE-PROCESS cmd="set" data="default_provider_from_domain=example.com"/>
-  <!-- true or false -->
-  <X-PRE-PROCESS cmd="set" data="default_provider_register=false"/>
-  <X-PRE-PROCESS cmd="set" data="default_provider_contact=5000"/>
-
-  <!--
       SIP and TLS settings. http://wiki.freeswitch.org/wiki/Tls
   -->
   <X-PRE-PROCESS cmd="set" data="sip_tls_version=<%= node[:freeswitch][:sip_tls_version] %>"/>
 
-  <!-- Internal SIP Profile -->
-  <X-PRE-PROCESS cmd="set" data="internal_auth_calls=true"/>
-  <X-PRE-PROCESS cmd="set" data="internal_sip_port=5080"/>
-  <X-PRE-PROCESS cmd="set" data="internal_tls_port=5081"/>
-  <X-PRE-PROCESS cmd="set" data="internal_ssl_enable=true"/>
-  <X-PRE-PROCESS cmd="set" data="internal_ssl_dir=$${base_dir}/conf/ssl"/>
-
   <!-- External SIP Profile -->
-  <X-PRE-PROCESS cmd="set" data="external_auth_calls=true"/>
+  <X-PRE-PROCESS cmd="set" data="external_auth_calls=false"/>
   <X-PRE-PROCESS cmd="set" data="external_sip_port=5060"/>
   <X-PRE-PROCESS cmd="set" data="external_tls_port=5061"/>
   <X-PRE-PROCESS cmd="set" data="external_ssl_enable=true"/>
