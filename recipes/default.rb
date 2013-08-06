@@ -133,22 +133,6 @@ template "#{node[:freeswitch][:homedir]}/conf/vars.xml" do
   mode 0644
 end
 
-# set SIP security attributes for registered users
-template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/internal.xml" do
-  owner node[:freeswitch][:user]
-  group node[:freeswitch][:group]
-  source "internal.xml.erb"
-  mode 0644
-  variables :extra_settings => node[:freeswitch][:sip_profiles][:internal][:extra_settings]
-end
-
-template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/internal-ipv6.xml" do
-  owner node[:freeswitch][:user]
-  group node[:freeswitch][:group]
-  source "internal-ipv6.xml.erb"
-  mode 0644
-end
-
 # set SIP security attributes for external users
 template "#{node[:freeswitch][:homedir]}/conf/sip_profiles/external.xml" do
   owner node[:freeswitch][:user]
