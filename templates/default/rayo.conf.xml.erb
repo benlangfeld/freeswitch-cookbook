@@ -18,7 +18,9 @@
 
     <!-- Listeners for new Rayo client connections -->
     <!--listen type="c2s" port="5222" address="$${local_ip_v4}" acl="rayo-clients"/-->
-    <listen type="c2s" port="5222" address="$${rayo_ip}" acl=""/>
+    <% @listeners.each do |listener| %>
+      <listener<%= " type=\"#{listener[:type]}\"" if listener[:type] %><%= " port=\"#{listener[:port]}\"" if listener[:port] %><%= " address=\"#{listener[:address]}\"" if listener[:address] %><%= " acl=\"#{listener[:acl]}\"" if listener[:acl] %>/>
+    <% end %>
 
     <!-- Listeners for new server connections -->
     <!--listen type="s2s" port="5269" address="$${local_ip_v4}" acl="rayo-servers"/-->

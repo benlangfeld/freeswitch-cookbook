@@ -205,6 +205,7 @@ template "#{node[:freeswitch][:homedir]}/conf/autoload_configs/rayo.conf.xml" do
   owner node[:freeswitch][:user]
   group node[:freeswitch][:group]
   mode 0755
+  variables :listeners => node[:freeswitch][:modules][:rayo][:listeners]
   notifies :restart, "service[#{node[:freeswitch][:service]}]"
 end
 
