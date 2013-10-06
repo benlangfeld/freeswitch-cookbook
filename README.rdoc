@@ -32,10 +32,10 @@ a line in /etc/hosts to the IP address/hostname pair. Reboot. Type `hostname
 The cookbook was written on Debian GNU/Linux 6 "squeeze". Package names are
 probably dependent on Debian.
 
-= ATTRIBUTES: 
+= ATTRIBUTES:
 
- default[:freeswitch][:domain] = node[:fqdn]  
- default[:freeswitch][:git_uri] = "git://git.freeswitch.org/freeswitch.git"
+ default['freeswitch']['domain'] = node['fqdn']
+ default['freeswitch']['git_uri'] = "git://git.freeswitch.org/freeswitch.git"
 
 = USAGE:
 

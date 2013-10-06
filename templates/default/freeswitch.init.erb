@@ -15,22 +15,22 @@
 # Do NOT "set -e"
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:<%= node[:freeswitch][:path] %>
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:<%= node['freeswitch']['path'] %>
 DESC="FreeSWITCH Voice Switching System"
-NAME=<%= node[:freeswitch][:service] %>
-DAEMON=<%= node[:freeswitch][:path] %>/$NAME
-USER=<%= node[:freeswitch][:user] %>
-PIDFILE=<%= node[:freeswitch][:homedir] %>/run/$NAME.pid
+NAME=<%= node['freeswitch']['service'] %>
+DAEMON=<%= node['freeswitch']['path'] %>/$NAME
+USER=<%= node['freeswitch']['user'] %>
+PIDFILE=<%= node['freeswitch']['homedir'] %>/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
-WORKDIR=<%= node[:freeswitch][:homedir] %>
+WORKDIR=<%= node['freeswitch']['homedir'] %>
 
 # Check if we are being executed by init
 
 CALLEDSCRIPT=`basename $0`
 
-if [ -r /etc/default/$NAME ]; then . /etc/default/$NAME; fi                                           
+if [ -r /etc/default/$NAME ]; then . /etc/default/$NAME; fi
 
-if [ "$FREESWITCH_ENABLED" != "true" ]; then 
+if [ "$FREESWITCH_ENABLED" != "true" ]; then
     echo "$DESC not enabled yet. Edit /etc/default/$NAME first."
     exit 0 ;
 fi

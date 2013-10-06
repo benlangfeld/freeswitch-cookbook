@@ -153,7 +153,11 @@ shift
 
 while [ $# -gt 0 ]; do
 	case $1 in
-		-quiet) 
+		-config-dir)
+			shift
+			CONFDIR="$1"
+			;;
+		-quiet)
 			shift
 			VAL="y"
 			;;

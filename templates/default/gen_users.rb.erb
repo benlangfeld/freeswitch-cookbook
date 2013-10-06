@@ -8,7 +8,7 @@
 require 'rubygems'
 require 'xmlsimple'
 
-domain = "<%= node[:fqdn] %>"
+domain = "<%= node['fqdn'] %>"
 first = 1000
 last = first + 10
 
@@ -29,7 +29,7 @@ end
 pwgen = `which pwgen`.chop!
 openssl = `which openssl`.chop!
 
-if (pwgen.nil?) 
+if (pwgen.nil?)
   puts "This program depends on the pwgen utility. Please install it."
   exit 1
 elsif ( openssl.nil? )
@@ -68,7 +68,7 @@ user_list = ""
       "params" => [{
         "param" => [{
           "name" => "a1-hash",
-          "value" => hash 
+          "value" => hash
         },
         {
           "name" => "vm-password",
@@ -115,7 +115,7 @@ puts "Finished creating XML #{ last - first } users"
       "params" => [{
         "param" => [{
           "name" => "a1-hash",
-          "value" => hash 
+          "value" => hash
         },
         {
           "name" => "vm-password",

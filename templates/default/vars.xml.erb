@@ -24,8 +24,8 @@
       affect the sip authentication.  Please review conf/directory/default.xml for more
       information on this topic.
   -->
-  <X-PRE-PROCESS cmd="set" data="local_ip_v4=<%= node[:freeswitch][:local_ip] %>"/>
-  <X-PRE-PROCESS cmd="set" data="domain=<%= node[:freeswitch][:domain] %>"/>
+  <X-PRE-PROCESS cmd="set" data="local_ip_v4=<%= node['freeswitch']['local_ip'] %>"/>
+  <X-PRE-PROCESS cmd="set" data="domain=<%= node['freeswitch']['domain'] %>"/>
   <X-PRE-PROCESS cmd="set" data="domain_name=$${domain}"/>
   <X-PRE-PROCESS cmd="set" data="hold_music=local_stream://moh"/>
   <X-PRE-PROCESS cmd="set" data="use_profile=internal"/>
@@ -239,12 +239,12 @@
   <!--
       SIP and TLS settings. http://wiki.freeswitch.org/wiki/Tls
   -->
-  <X-PRE-PROCESS cmd="set" data="sip_tls_version=<%= node[:freeswitch][:sip_tls_version] %>"/>
+  <X-PRE-PROCESS cmd="set" data="sip_tls_version=<%= node['freeswitch']['sip_tls_version'] %>"/>
 
   <!-- External SIP Profile -->
   <X-PRE-PROCESS cmd="set" data="external_auth_calls=false"/>
   <X-PRE-PROCESS cmd="set" data="external_sip_port=5060"/>
   <X-PRE-PROCESS cmd="set" data="external_tls_port=5061"/>
-  <X-PRE-PROCESS cmd="set" data="external_ssl_enable=true"/>
+  <X-PRE-PROCESS cmd="set" data="external_ssl_enable=false"/>
   <X-PRE-PROCESS cmd="set" data="external_ssl_dir=$${base_dir}/conf/ssl"/>
 </include>
