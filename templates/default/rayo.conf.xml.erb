@@ -19,7 +19,7 @@
     <!-- Listeners for new Rayo client connections -->
     <!--listen type="c2s" port="5222" address="$${local_ip_v4}" acl="rayo-clients"/-->
     <% @listeners.each do |listener| %>
-      <listener<%= " type=\"#{listener[:type]}\"" if listener[:type] %><%= " port=\"#{listener[:port]}\"" if listener[:port] %><%= " address=\"#{listener[:address]}\"" if listener[:address] %><%= " acl=\"#{listener[:acl]}\"" if listener[:acl] %>/>
+      <listen<%= " type=\"#{listener[:type]}\"" if listener[:type] %><%= " port=\"#{listener[:port]}\"" if listener[:port] %><%= " address=\"#{listener[:address]}\"" if listener[:address] %><%= " acl=\"#{listener[:acl]}\"" if listener[:acl] %>/>
     <% end %>
 
     <!-- Listeners for new server connections -->
