@@ -1,6 +1,6 @@
-node['freeswitch']['binpath'] = node['freeswitch']['source']['binpath']
-node['freeswitch']['confpath'] = node['freeswitch']['source']['confpath']
-node['freeswitch']['homedir'] = node['freeswitch']['source']['homedir']
+node.default['freeswitch']['binpath'] = node['freeswitch']['source']['binpath']
+node.default['freeswitch']['confpath'] = node['freeswitch']['source']['confpath']
+node.default['freeswitch']['homedir'] = node['freeswitch']['source']['homedir']
 
 ## Build requirements
 package "autoconf"

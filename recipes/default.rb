@@ -37,14 +37,14 @@ end
 
 execute "build_ca" do
   user "freeswitch"
-  cwd "#{node['freeswitch']['binpath']}"
+  cwd node['freeswitch']['binpath']
   command "./gentls_cert setup -config-dir #{node['freeswitch']['confpath']}/ssl -cn #{node['freeswitch']['domain']} -alt DNS:#{node['freeswitch']['domain']} -org #{node['freeswitch']['domain']}"
   creates "#{node['freeswitch']['confpath']}/ssl/CA/cakey.pem"
 end
 
 execute "gen_server_cert" do
   user "freeswitch"
-  cwd "#{node['freeswitch']['binpath']}"
+  cwd node['freeswitch']['binpath']
   command "./gentls_cert create_server -config-dir #{node['freeswitch']['confpath']}/ssl -quiet -cn #{node['freeswitch']['domain']} -alt DNS:#{node['freeswitch']['domain']} -org #{node['freeswitch']['domain']}"
   creates "#{node['freeswitch']['confpath']}/ssl/agent.pem"
 end

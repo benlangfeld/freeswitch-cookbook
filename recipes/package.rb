@@ -4,14 +4,13 @@ node.default['freeswitch']['homedir'] = node['freeswitch']['package']['homedir']
 
 case node['platform']
 when 'ubuntu', 'debian'
-  if node['freeswitch']['package']['repo']['enable']
-    apt_repository 'freeswitch' do
-      uri node['freeswitch']['package']['repo']['url']
-      distribution node['freeswitch']['package']['repo']['distro']
-      components node['freeswitch']['package']['repo']['branches']
-      keyserver node['freeswitch']['package']['repo']['keyserver']
-      key node['freeswitch']['package']['repo']['key']
-    end
+  apt_repository 'freeswitch' do
+    uri node['freeswitch']['package']['repo']['url']
+    distribution node['freeswitch']['package']['repo']['distro']
+    components node['freeswitch']['package']['repo']['branches']
+    keyserver node['freeswitch']['package']['repo']['keyserver']
+    key node['freeswitch']['package']['repo']['key']
+    only_if { node['freeswitch']['package']['repo']['enable'] }
   end
 
   node['freeswitch']['package']['debs'].each do |pkg|
