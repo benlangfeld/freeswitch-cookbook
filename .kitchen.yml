@@ -8,10 +8,6 @@ platforms:
   driver_config:
     box: tdb-ubuntu1204-v9
     box_url: http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-ubuntu1204.box
-- name: tdb-centos64-v9
-  driver_config:
-    box: tdb-centos64-v9
-    box_url: http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-centos64.box
 
 suites:
 - name: default
