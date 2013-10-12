@@ -1,6 +1,6 @@
-node['freeswitch']['binpath'] = node['freeswitch']['package']['binpath']
-node['freeswitch']['confpath'] = node['freeswitch']['package']['confpath']
-node['freeswitch']['homedir'] = node['freeswitch']['package']['homedir']
+node.default['freeswitch']['binpath'] = node['freeswitch']['package']['binpath']
+node.default['freeswitch']['confpath'] = node['freeswitch']['package']['confpath']
+node.default['freeswitch']['homedir'] = node['freeswitch']['package']['homedir']
 
 case node['platform']
 when 'ubuntu', 'debian'
