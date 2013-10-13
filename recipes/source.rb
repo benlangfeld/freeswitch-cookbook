@@ -17,13 +17,7 @@ package "pkg-config"
 package "gnutls-bin"
 package "libsqlite3-dev"
 package "bison"
-## install packages for mod_shout for mp3 playback
 
-# user generation dependencies
-gem_package "xml-simple"
-package "pwgen"
-
-# get source
 execute "git_clone" do
   command "git clone -b #{node['freeswitch']['source']['git_branch']} #{node['freeswitch']['source']['git_uri']} freeswitch"
   cwd "/usr/local/src"
@@ -34,7 +28,6 @@ template "/usr/local/src/freeswitch/modules.conf" do
   source "modules.conf.erb"
 end
 
-# compile source and install
 script "compile_freeswitch" do
   interpreter "/bin/bash"
   cwd "/usr/local/src/freeswitch"
