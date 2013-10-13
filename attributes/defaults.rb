@@ -4,6 +4,10 @@ default['freeswitch']['user'] = "freeswitch"
 default['freeswitch']['group'] = "freeswitch"
 default['freeswitch']['service'] = "freeswitch"
 
+default['freeswitch']['binpath']  = '/usr/bin'
+default['freeswitch']['confpath'] = '/etc/freeswitch'
+default['freeswitch']['homedir']  = '/var/lib/freeswitch'
+
 default['freeswitch']['inbound_proxy_media'] = "true"
 default['freeswitch']['inbound_bypass_media'] = "false"
 default['freeswitch']['sip_tls_version'] = "sslv23"

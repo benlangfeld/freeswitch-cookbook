@@ -1,7 +1,3 @@
-node.default['freeswitch']['binpath'] = node['freeswitch']['source']['binpath']
-node.default['freeswitch']['confpath'] = node['freeswitch']['source']['confpath']
-node.default['freeswitch']['homedir'] = node['freeswitch']['source']['homedir']
-
 ## Build requirements
 package "autoconf"
 package "automake"
@@ -33,7 +29,19 @@ script "compile_freeswitch" do
   cwd "/usr/local/src/freeswitch"
   code <<-EOF
   ./bootstrap.sh
-  ./configure
+  ./configure --prefix=/usr --localstatedir=/var \
+    --sysconfdir=/etc/freeswitch \
+    --with-modinstdir=/usr/lib/freeswitch/mod \
+    --with-rundir=/var/run/freeswitch \
+    --with-logfiledir=/var/log/freeswitch \
+    --with-dbdir=/var/lib/freeswitch/db \
+    --with-htdocsdir=/usr/share/freeswitch/htdocs \
+    --with-soundsdir=/usr/share/freeswitch/sounds \
+    --with-storagedir=/var/lib/freeswitch/storage \
+    --with-grammardir=/usr/share/freeswitch/grammar \
+    --with-certsdir=/etc/freeswitch/tls \
+    --with-scriptdir=/usr/share/freeswitch/scripts \
+    --with-recordingsdir=/var/lib/freeswitch/recordings
   make clean
   make
   make config-rayo
@@ -62,18 +70,32 @@ end
 user node['freeswitch']['user'] do
   system true
   shell "/bin/bash"
-  home node['freeswitch']['source']['homedir']
+  home node['freeswitch']['homedir']
   gid node['freeswitch']['group']
 end
 
 # change ownership of homedir
 execute "fs_homedir_ownership" do
-  cwd node['freeswitch']['source']['homedir']
+  cwd node['freeswitch']['homedir']
   command "chown -R #{node['freeswitch']['user']}:#{node['freeswitch']['group']} ."
 end
 
+%w{
+  /var/lib/freeswitch
+  /var/lib/freeswitch/db
+  /var/lib/freeswitch/recordings
+  /var/lib/freeswitch/storage
+  /var/log/freeswitch
+  /var/run/freeswitch
+}.each do |dir|
+  directory dir do
+    owner node['freeswitch']['user']
+    group node['freeswitch']['group']
+  end
+end
+
 # define service
-service node['freeswitch']['source']['service'] do
+service node['freeswitch']['service'] do
   supports :restart => true, :start => true
   action ['enable']
 end
