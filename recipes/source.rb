@@ -22,6 +22,7 @@ end
 
 template "/usr/local/src/freeswitch/modules.conf" do
   source "modules.conf.erb"
+  variables modules: node['freeswitch']['source']['modules']
 end
 
 script "compile_freeswitch" do
