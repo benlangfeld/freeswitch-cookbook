@@ -30,3 +30,39 @@ default['freeswitch']['modules']['rayo']['listeners'] = [
     'acl' => ""
   }
 ]
+
+default['freeswitch']['autoload_modules'] = %w[
+  mod_console
+  mod_logfile
+  mod_enum
+  mod_event_socket
+  mod_rayo
+  mod_sofia
+  mod_loopback
+  mod_commands
+  mod_conference
+  mod_db
+  mod_dptools
+  mod_expr
+  mod_fifo
+  mod_hash
+  mod_esf
+  mod_fsv
+  mod_http_cache
+  mod_dialplan_xml
+  mod_g723_1
+  mod_g729
+  mod_amr
+  mod_ilbc
+  mod_speex
+  mod_h26x
+  mod_siren
+  mod_sndfile
+  mod_native_file
+  mod_local_stream
+  mod_tone_stream
+  mod_ssml
+  mod_flite
+  mod_pocketsphinx
+  mod_say
+]

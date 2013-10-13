@@ -70,6 +70,7 @@ template "#{node['freeswitch']['confpath']}/autoload_configs/modules.conf.xml" d
   owner node['freeswitch']['user']
   group node['freeswitch']['group']
   mode 0755
+  variables modules: node['freeswitch']['autoload_configs']
   notifies :restart, "service[#{node['freeswitch']['service']}]"
 end
 
