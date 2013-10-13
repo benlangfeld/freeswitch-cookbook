@@ -10,6 +10,14 @@ platforms:
     box_url: http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-ubuntu1204.box
 
 suites:
-- name: default
+- name: package
   run_list: ['recipe[freeswitch]']
   attributes: {}
+- name: source
+  run_list: ['recipe[freeswitch]']
+  attributes: {
+    freeswitch: {
+      install_method: 'source'
+    }
+  }
+
