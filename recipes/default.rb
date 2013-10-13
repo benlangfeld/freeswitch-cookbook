@@ -37,14 +37,6 @@ template "#{node['freeswitch']['confpath']}/autoload_configs/event_socket.conf.x
   mode 0755
 end
 
-template "#{node['freeswitch']['confpath']}/autoload_configs/acl.conf.xml" do
-  source "acl.conf.xml.erb"
-  owner node['freeswitch']['user']
-  group node['freeswitch']['group']
-  mode 0755
-  variables :acl_domains => node['freeswitch']['acl']['domains']
-end
-
 template "#{node['freeswitch']['confpath']}/dialplan/public.xml" do
   source "public.xml.erb"
   owner node['freeswitch']['user']
