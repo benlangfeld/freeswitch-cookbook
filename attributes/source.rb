@@ -26,6 +26,7 @@ codecs/mod_siren
 dialplans/mod_dialplan_xml
 endpoints/mod_sofia
 endpoints/mod_loopback
+asr_tts/mod_flite
 asr_tts/mod_pocketsphinx
 event_handlers/mod_event_socket
 event_handlers/mod_cdr_csv
