@@ -1,0 +1,25 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: false
+
+platforms:
+- name: tdb-ubuntu1204-v9
+  driver_config:
+    box: tdb-ubuntu1204-v9
+    box_url: http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-ubuntu1204.box
+    customize:
+      memory: 1024
+
+suites:
+- name: package
+  run_list: ['recipe[freeswitch]']
+  attributes: {}
+- name: source
+  run_list: ['recipe[freeswitch]']
+  attributes: {
+    freeswitch: {
+      install_method: 'source'
+    }
+  }
+

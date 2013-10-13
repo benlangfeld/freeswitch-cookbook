@@ -40,7 +40,7 @@
     <param name="presence-privacy" value="$${presence_privacy}"/>
     <param name="inbound-codec-negotiation" value="generous"/>
     <param name="tls" value="$${internal_ssl_enable}"/>
-    <param name="tls-only" value="<%= node[:freeswitch][:tls_only] %>"/>
+    <param name="tls-only" value="<%= node['freeswitch']['tls_only'] %>"/>
     <param name="tls-bind-params" value="transport=tls"/>
     <param name="tls-sip-port" value="$${internal_tls_port}"/>
     <param name="tls-cert-dir" value="$${internal_ssl_dir}"/>
@@ -50,15 +50,15 @@
     <param name="tls-verify-depth" value="2"/>
     <param name="tls-verify-in-subjects" value=""/>
     <param name="tls-version" value="$${sip_tls_version}"/>
-    <param name="inbound-proxy-media" value="<%= node[:freeswitch][:inbound_proxy_media] %>"/>
-    <param name="inbound-bypass-media" value="<%= node[:freeswitch][:inbound_bypass_media] %>"/>
+    <param name="inbound-proxy-media" value="<%= node['freeswitch']['inbound_proxy_media'] %>"/>
+    <param name="inbound-bypass-media" value="<%= node['freeswitch']['inbound_bypass_media'] %>"/>
     <param name="nonce-ttl" value="60"/>
     <param name="auth-calls" value="$${internal_auth_calls}"/>
     <param name="inbound-reg-force-matching-username" value="true"/>
     <param name="auth-all-packets" value="false"/>
     <param name="rtp-timeout-sec" value="300"/>
     <param name="rtp-hold-timeout-sec" value="1800"/>
-    <param name="force-register-domain" value="$${domain}"/>     
+    <param name="force-register-domain" value="$${domain}"/>
     <param name="force-subscription-domain" value="$${domain}"/>
     <param name="force-register-db-domain" value="$${domain}"/>
     <param name="challenge-realm" value="auto_from"/>
