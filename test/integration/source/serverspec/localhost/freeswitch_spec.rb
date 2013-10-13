@@ -27,4 +27,9 @@ describe 'FreeSWITCH' do
   describe port(5222) do
     it { should be_listening.with('tcp') }
   end
+
+  # Check mod_flite was loaded correctly, since debian packages have been known to fail to load this
+  describe command('fs_cli -x "reload mod_flite"') do
+    it { should return_stdout /\+OK module loaded/ }
+  end
 end
