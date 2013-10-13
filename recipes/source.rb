@@ -15,7 +15,7 @@ package "libsqlite3-dev"
 package "bison"
 
 execute "git_clone" do
-  command "git clone -b #{node['freeswitch']['source']['git_branch']} #{node['freeswitch']['source']['git_uri']} freeswitch"
+  command "git clone --depth 1 -b #{node['freeswitch']['source']['git_branch']} #{node['freeswitch']['source']['git_uri']} freeswitch"
   cwd "/usr/local/src"
   creates "/usr/local/src/freeswitch"
 end
