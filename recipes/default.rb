@@ -46,17 +46,6 @@ template "#{node['freeswitch']['confpath']}/dialplan/public.xml" do
             :public_tail_fragments => node['freeswitch']['dialplan']['public_tail_fragments']
 end
 
-node['freeswitch']['extra_sip_profiles'].each do |p|
-  template "#{node['freeswitch']['confpath']}/sip_profiles/#{p['folder']}/#{p['file_name']}.xml" do
-    source "sip_profile_tpl.xml.erb"
-    owner node['freeswitch']['user']
-    group node['freeswitch']['group']
-    mode 0755
-    variables :profile_name => p['profile_name'],
-              :contents => p['contents']
-  end
-end
-
 template "#{node['freeswitch']['confpath']}/autoload_configs/modules.conf.xml" do
   source "modules.conf.xml.erb"
   owner node['freeswitch']['user']
