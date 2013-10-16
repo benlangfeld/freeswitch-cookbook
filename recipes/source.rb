@@ -1,18 +1,4 @@
-## Build requirements
-package "autoconf"
-package "automake"
-package "g++"
-package "git-core"
-package "libjpeg62-dev"
-package "libncurses5-dev"
-package "libtool"
-package "make"
-package "python-dev"
-package "gawk"
-package "pkg-config"
-package "gnutls-bin"
-package "libsqlite3-dev"
-package "bison"
+node['freeswitch']['source']['dependencies'].each { |d| package d }
 
 execute "git_clone" do
   command "git clone --depth 1 -b #{node['freeswitch']['source']['git_branch']} #{node['freeswitch']['source']['git_uri']} freeswitch"

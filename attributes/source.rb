@@ -1,6 +1,23 @@
 default['freeswitch']['source']['git_uri'] = "git://git.freeswitch.org/freeswitch.git"
 default['freeswitch']['source']['git_branch'] = "v1.2.stable"
 default['freeswitch']['source']['enabled'] = "true"
+default['freeswitch']['source']['dependencies'] = %w[
+autoconf
+automake
+g++
+git-core
+libjpeg62-dev
+libncurses5-dev
+libtool
+make
+python-dev
+gawk
+pkg-config
+gnutls-bin
+libsqlite3-dev
+bison
+libasound2-dev
+]
 default['freeswitch']['source']['modules'] = %w[
 loggers/mod_console
 loggers/mod_logfile
