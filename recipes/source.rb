@@ -1,3 +1,5 @@
+include_recipe 'apt'
+
 node['freeswitch']['source']['dependencies'].each { |d| package d }
 
 execute "git_clone" do
