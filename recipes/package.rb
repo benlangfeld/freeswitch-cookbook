@@ -19,7 +19,7 @@ when 'ubuntu', 'debian'
   end
 
   execute "install_fs_config" do
-    command "cp -a /usr/share/freeswitch/conf/rayo/* #{node['freeswitch']['confpath']} && chown -R #{node['freeswitch']['user']}:#{node['freeswitch']['group']} #{node['freeswitch']['confpath']}"
+    command "cp -a /usr/share/freeswitch/conf/#{node['freeswitch']['package']['config_template']}/* #{node['freeswitch']['confpath']} && chown -R #{node['freeswitch']['user']}:#{node['freeswitch']['group']} #{node['freeswitch']['confpath']}"
   end
 else
   raise "Platform #{node['platform']} not supported"

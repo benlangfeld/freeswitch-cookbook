@@ -31,7 +31,6 @@ script "compile_freeswitch" do
     --with-recordingsdir=/var/lib/freeswitch/recordings
   make clean
   make
-  make config-rayo
   make install
 EOF
   not_if "test -f #{node['freeswitch']['binpath']}/freeswitch"

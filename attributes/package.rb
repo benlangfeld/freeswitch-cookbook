@@ -1,10 +1,12 @@
 default['freeswitch']['package']['debs'] = %w(
   freeswitch-meta-vanilla
   freeswitch-init
-  freeswitch-mod-rayo
-  freeswitch-mod-flite
-  freeswitch-conf-rayo
+  freeswitch-lang
+  freeswitch-music
+  freeswitch-sounds
+  freeswitch-conf-vanilla
 )
+default['freeswitch']['package']['config_template']   = 'vanilla'
 
 default['freeswitch']['package']['repo']['enable']    = true
 default['freeswitch']['package']['repo']['url']       = 'http://files.freeswitch.org/repo/deb/debian'
