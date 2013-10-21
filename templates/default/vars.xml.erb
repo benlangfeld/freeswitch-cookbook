@@ -14,6 +14,28 @@
   -->
   <X-PRE-PROCESS cmd="set" data="default_password=1234"/>
   <!-- Did you change it yet? -->
+  <!--
+      The following variables are set dynamically - calculated if possible by freeswitch - and
+      are available to the config as $${variable}.  You can see their calculated value via fs_cli
+      by entering eval $${variable}
+
+      hostname
+      local_ip_v4
+      local_mask_v4
+      local_ip_v6
+      switch_serial
+      base_dir
+      recordings_dir
+      sound_prefix
+      sounds_dir
+      core_uuid
+      zrtp_enabled
+      nat_public_addr
+      nat_private_addr
+      nat_type
+
+  -->
+
 
   <X-PRE-PROCESS cmd="set" data="sound_prefix=$${sounds_dir}/en/us/callie"/>
 
@@ -29,10 +51,6 @@
   <X-PRE-PROCESS cmd="set" data="domain_name=$${domain}"/>
   <X-PRE-PROCESS cmd="set" data="hold_music=local_stream://moh"/>
   <X-PRE-PROCESS cmd="set" data="use_profile=internal"/>
-
-  <!-- Rayo -->
-  <X-PRE-PROCESS cmd="set" data="rayo_ip=$${local_ip_v4}"/>
-  <X-PRE-PROCESS cmd="set" data="rayo_domain_name=$${domain}"/>
 
   <!--
       Enable ZRTP globally you can override this on a per channel basis
@@ -128,7 +146,7 @@
        127 - BV32
 
   -->
-  <X-PRE-PROCESS cmd="set" data="global_codec_prefs=G7221@32000h,G7221@16000h,G722,PCMU,PCMA,GSM"/>
+  <X-PRE-PROCESS cmd="set" data="global_codec_prefs=G722,PCMU,PCMA,GSM"/>
   <X-PRE-PROCESS cmd="set" data="outbound_codec_prefs=PCMU,PCMA,GSM"/>
 
   <!--
@@ -217,6 +235,7 @@
   <X-PRE-PROCESS cmd="set" data="dk-ring=%(1000,4000,425)"/>
   <X-PRE-PROCESS cmd="set" data="dz-ring=%(1500,3500,425)"/>
   <X-PRE-PROCESS cmd="set" data="eg-ring=%(2000,1000,475,375)"/>
+  <X-PRE-PROCESS cmd="set" data="es-ring=%(1500,3000,425)"/>
   <X-PRE-PROCESS cmd="set" data="fi-ring=%(1000,4000,425)"/>
   <X-PRE-PROCESS cmd="set" data="fr-ring=%(1500,3500,440)"/>
   <X-PRE-PROCESS cmd="set" data="hk-ring=%(400,200,440,480);%(400,3000,440,480)"/>
@@ -235,16 +254,38 @@
   <X-PRE-PROCESS cmd="set" data="uk-ring=%(400,200,400,450);%(400,2000,400,450)"/>
   <X-PRE-PROCESS cmd="set" data="us-ring=%(2000,4000,440,480)"/>
   <X-PRE-PROCESS cmd="set" data="bong-ring=v=-7;%(100,0,941.0,1477.0);v=-7;>=2;+=.1;%(1400,0,350,440)"/>
+  <X-PRE-PROCESS cmd="set" data="beep=%(1000,0,640)"/>
   <X-PRE-PROCESS cmd="set" data="sit=%(274,0,913.8);%(274,0,1370.6);%(380,0,1776.7)"/>
+  <!--
+      Setting up your default sip provider is easy.
+      Below are some values that should work in most cases.
+
+      These are for conf/directory/default/example.com.xml
+  -->
+  <X-PRE-PROCESS cmd="set" data="default_provider=example.com"/>
+  <X-PRE-PROCESS cmd="set" data="default_provider_username=joeuser"/>
+  <X-PRE-PROCESS cmd="set" data="default_provider_password=password"/>
+  <X-PRE-PROCESS cmd="set" data="default_provider_from_domain=example.com"/>
+  <!-- true or false -->
+  <X-PRE-PROCESS cmd="set" data="default_provider_register=false"/>
+  <X-PRE-PROCESS cmd="set" data="default_provider_contact=5000"/>
+
   <!--
       SIP and TLS settings. http://wiki.freeswitch.org/wiki/Tls
   -->
-  <X-PRE-PROCESS cmd="set" data="sip_tls_version=<%= node['freeswitch']['sip_tls_version'] %>"/>
+  <X-PRE-PROCESS cmd="set" data="sip_tls_version=tlsv1"/>
+
+  <!-- Internal SIP Profile -->
+  <X-PRE-PROCESS cmd="set" data="internal_auth_calls=true"/>
+  <X-PRE-PROCESS cmd="set" data="internal_sip_port=5060"/>
+  <X-PRE-PROCESS cmd="set" data="internal_tls_port=5061"/>
+  <X-PRE-PROCESS cmd="set" data="internal_ssl_enable=false"/>
+
 
   <!-- External SIP Profile -->
   <X-PRE-PROCESS cmd="set" data="external_auth_calls=false"/>
-  <X-PRE-PROCESS cmd="set" data="external_sip_port=5060"/>
-  <X-PRE-PROCESS cmd="set" data="external_tls_port=5061"/>
+  <X-PRE-PROCESS cmd="set" data="external_sip_port=5080"/>
+  <X-PRE-PROCESS cmd="set" data="external_tls_port=5081"/>
   <X-PRE-PROCESS cmd="set" data="external_ssl_enable=false"/>
-  <X-PRE-PROCESS cmd="set" data="external_ssl_dir=$${base_dir}/conf/ssl"/>
+
 </include>
