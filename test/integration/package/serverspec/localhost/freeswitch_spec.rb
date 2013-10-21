@@ -31,4 +31,14 @@ describe 'FreeSWITCH' do
   describe command('sudo fs_cli -x "eval \$\${domain}"') do
     it { should return_stdout 'foo.bar.com' }
   end
+
+  # Local-network environments need to present the set IP in SIP
+  describe command('sudo fs_cli -x "eval \$\${external_sip_ip}"') do
+    it { should return_stdout '0.0.0.0' }
+  end
+
+  # Local-network environments need to present the set IP in RTP
+  describe command('sudo fs_cli -x "eval \$\${external_rtp_ip}"') do
+    it { should return_stdout '0.0.0.0' }
+  end
 end
