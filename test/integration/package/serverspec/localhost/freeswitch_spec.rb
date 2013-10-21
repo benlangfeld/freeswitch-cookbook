@@ -23,4 +23,12 @@ describe 'FreeSWITCH' do
     it { should be_listening.with('tcp') }
     it { should be_listening.with('udp') }
   end
+
+  describe command('sudo fs_cli -x "eval \$\${local_ip_v4}"') do
+    it { should return_stdout '0.0.0.0' }
+  end
+
+  describe command('sudo fs_cli -x "eval \$\${domain}"') do
+    it { should return_stdout 'foo.bar.com' }
+  end
 end

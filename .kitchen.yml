@@ -20,12 +20,19 @@ platforms:
 suites:
 - name: package
   run_list: ['recipe[freeswitch]']
-  attributes: {}
+  attributes: {
+    freeswitch: {
+      local_ip: '0.0.0.0',
+      domain: 'foo.bar.com'
+    }
+  }
 - name: source
   run_list: ['recipe[freeswitch]']
   attributes: {
     freeswitch: {
-      install_method: 'source'
+      install_method: 'source',
+      local_ip: '0.0.0.0',
+      domain: 'foo.bar.com'
     }
   }
 
