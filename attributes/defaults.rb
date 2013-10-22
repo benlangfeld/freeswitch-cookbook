@@ -1,16 +1,52 @@
-default[:freeswitch][:git_uri] = "git://git.freeswitch.org/freeswitch.git"
-default[:freeswitch][:git_branch] = "v1.2.stable"
-default[:freeswitch][:inbound_proxy_media] = "true"
-default[:freeswitch][:inbound_bypass_media] = "false"
-default[:freeswitch][:sip_tls_version] = "sslv23"
-default[:freeswitch][:service] = "freeswitch"
-default[:freeswitch][:user] = "freeswitch"
-default[:freeswitch][:group] = "freeswitch"
-default[:freeswitch][:enabled] = "true"
-default[:freeswitch][:path] = "/usr/local/freeswitch/bin"
-default[:freeswitch][:homedir] = "/usr/local/freeswitch"
-default[:freeswitch][:tls_only] = "true"
-default[:freeswitch][:domain] = node[:fqdn]
-default[:freeswitch][:local_ip] = '127.0.0.1'
-default[:freeswitch][:dialplan][:head_fragments] = ''
-default[:freeswitch][:dialplan][:tail_fragments] = ''
+default['freeswitch']['install_method'] = "package"
+
+default['freeswitch']['user'] = "freeswitch"
+default['freeswitch']['group'] = "freeswitch"
+default['freeswitch']['service'] = "freeswitch"
+
+default['freeswitch']['binpath']  = '/usr/bin'
+default['freeswitch']['confpath'] = '/etc/freeswitch'
+default['freeswitch']['homedir']  = '/var/lib/freeswitch'
+
+default['freeswitch']['domain'] = node['fqdn']
+default['freeswitch']['local_ip'] = '127.0.0.1'
+
+default['freeswitch']['autoload_modules'] = %w[
+  mod_console
+  mod_logfile
+  mod_enum
+  mod_cdr_csv
+  mod_event_socket
+  mod_sofia
+  mod_loopback
+  mod_commands
+  mod_conference
+  mod_db
+  mod_dptools
+  mod_expr
+  mod_fifo
+  mod_hash
+  mod_voicemail
+  mod_esf
+  mod_fsv
+  mod_cluechoo
+  mod_valet_parking
+  mod_httapi
+  mod_dialplan_xml
+  mod_dialplan_asterisk
+  mod_spandsp
+  mod_g723_1
+  mod_g729
+  mod_amr
+  mod_speex
+  mod_h26x
+  mod_vp8
+  mod_b64
+  mod_sndfile
+  mod_native_file
+  mod_local_stream
+  mod_tone_stream
+  mod_spidermonkey
+  mod_lua
+  mod_say_en
+]
