@@ -53,6 +53,8 @@ test/*
 features/*
 Guardfile
 Procfile
+.kitchen.yml
+.kitchen/*
 
 # SCM #
 #######
@@ -94,3 +96,5 @@ Vagrantfile
 # Travis #
 ##########
 .travis.yml
+
+Makefile
