@@ -5,6 +5,8 @@ when 'source'
   include_recipe 'freeswitch::source'
 end
 
+service node['freeswitch']['service']
+
 # set global variables
 template "#{node['freeswitch']['confpath']}/vars.xml" do
   owner node['freeswitch']['user']
@@ -22,8 +24,4 @@ template "#{node['freeswitch']['confpath']}/autoload_configs/modules.conf.xml" d
   mode 0755
   variables modules: node['freeswitch']['autoload_modules']
   notifies :restart, "service[#{node['freeswitch']['service']}]"
-end
-
-service node['freeswitch']['service'] do
-  action ['restart']
 end
