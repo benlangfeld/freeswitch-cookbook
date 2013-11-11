@@ -10,6 +10,7 @@ default['freeswitch']['homedir']  = '/var/lib/freeswitch'
 
 default['freeswitch']['domain'] = node['fqdn']
 default['freeswitch']['local_ip'] = '127.0.0.1'
+default['freeswitch']['vars_template'] = "vars.xml.erb"
 
 default['freeswitch']['autoload_modules'] = %w[
   mod_console
