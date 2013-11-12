@@ -11,7 +11,7 @@ service node['freeswitch']['service']
 template "#{node['freeswitch']['confpath']}/vars.xml" do
   owner node['freeswitch']['user']
   group node['freeswitch']['group']
-  source "vars.xml.erb"
+  source node['freeswitch']['vars_template']
   mode 0644
   variables local_ip_v4: node['freeswitch']['local_ip'], domain: node['freeswitch']['domain']
 end
