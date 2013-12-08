@@ -4,7 +4,7 @@ This Chef cookbook installs FreeSWITCH either from source or packages and config
 
 # Requirements
 
-Tested on Ubuntu 12.04 and Debian 7.1.
+Tested on Ubuntu 12.04, Debian 7.1 and CentOS 6.5.
 
 # Usage
 
