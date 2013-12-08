@@ -1,4 +1,4 @@
-node.default['freeswitch']['package']['debs'] = %w(
+node.default['freeswitch']['package']['packages'] = %w(
   freeswitch-meta-vanilla
   freeswitch-mod-rayo
   freeswitch-init

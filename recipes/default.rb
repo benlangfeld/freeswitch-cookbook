@@ -7,6 +7,13 @@ end
 
 service node['freeswitch']['service']
 
+case node['platform']
+when 'redhat', 'centos', 'fedora'
+  group 'freeswitch' do
+    members 'freeswitch'
+  end
+end
+
 # set global variables
 template "#{node['freeswitch']['confpath']}/vars.xml" do
   owner node['freeswitch']['user']
