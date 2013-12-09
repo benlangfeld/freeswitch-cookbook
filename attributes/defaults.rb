@@ -1,7 +1,12 @@
 default['freeswitch']['install_method'] = "package"
 
 default['freeswitch']['user'] = "freeswitch"
-default['freeswitch']['group'] = "freeswitch"
+default['freeswitch']['group'] = case node['platform']
+when 'ubuntu', 'debian'
+  'freeswitch'
+when 'redhat', 'centos', 'fedora'
+  'daemon'
+end
 default['freeswitch']['service'] = "freeswitch"
 
 default['freeswitch']['binpath']  = '/usr/bin'
