@@ -1,22 +1,45 @@
 default['freeswitch']['source']['git_uri'] = "git://git.freeswitch.org/freeswitch.git"
 default['freeswitch']['source']['git_branch'] = "v1.2.stable"
-default['freeswitch']['source']['dependencies'] = %w[
-autoconf
-automake
-g++
-git-core
-libjpeg62-dev
-libncurses5-dev
-libtool
-make
-python-dev
-gawk
-pkg-config
-gnutls-bin
-libsqlite3-dev
-bison
-libasound2-dev
-]
+
+case node[:platform]
+when 'ubuntu','debian'
+  default['freeswitch']['source']['dependencies'] = %w[
+    autoconf
+    automake
+    g++
+    git-core
+    libjpeg62-dev
+    libncurses5-dev
+    libtool
+    make
+    python-dev
+    gawk
+    pkg-config
+    gnutls-bin
+    libsqlite3-dev
+    bison
+    libasound2-dev
+  ]
+when 'centos'
+  default['freeswitch']['source']['dependencies'] = %w[
+    autoconf
+    automake
+    gcc-c++
+    git-core
+    libjpeg-turbo-devel
+    ncurses-devel
+    libtool
+    make
+    python-devel
+    gawk
+    pkgconfig
+    sqlite-devel
+    gnutls
+    bison
+    alsa-lib-devel
+  ]
+end
+
 default['freeswitch']['source']['modules'] = %w[
 loggers/mod_console
 loggers/mod_logfile
