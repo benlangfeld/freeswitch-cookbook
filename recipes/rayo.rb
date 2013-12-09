@@ -1,12 +1,24 @@
-node.default['freeswitch']['package']['packages'] = %w(
-  freeswitch-meta-vanilla
-  freeswitch-mod-rayo
-  freeswitch-init
-  freeswitch-lang
-  freeswitch-music
-  freeswitch-sounds
-  freeswitch-conf-rayo
-)
+node.default['freeswitch']['package']['packages'] = case node['platform']
+when 'ubuntu', 'debian'
+  %w(
+    freeswitch-meta-vanilla
+    freeswitch-mod-rayo
+    freeswitch-init
+    freeswitch-lang
+    freeswitch-music
+    freeswitch-sounds
+    freeswitch-conf-rayo
+  )
+when 'redhat', 'centos', 'fedora'
+  %w(
+    freeswitch
+    freeswitch-mod-rayo
+    freeswitch-lang-en
+    freeswitch-sounds-music
+    freeswitch-sounds-en-us-callie
+    freeswitch-config-rayo
+  )
+end
 node.default['freeswitch']['package']['config_template'] = 'rayo'
 
 node.default['freeswitch']['source']['modules'] = %w[
