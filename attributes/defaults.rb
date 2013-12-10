@@ -14,7 +14,7 @@ default['freeswitch']['confpath'] = '/etc/freeswitch'
 default['freeswitch']['homedir']  = '/var/lib/freeswitch'
 
 default['freeswitch']['domain'] = node['fqdn']
-default['freeswitch']['local_ip'] = '127.0.0.1'
+default['freeswitch']['local_ip'] = node['ec2'] ? node['ec2']['public_ipv4'] : node['ipaddress']
 default['freeswitch']['vars_template'] = "vars.xml.erb"
 
 default['freeswitch']['autoload_modules'] = %w[

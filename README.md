@@ -19,7 +19,7 @@ Add `recipe[freeswitch]` to your node's run list
 * `node['freeswitch']['binpath']` - the path at which FreeSWITCH binaries are located (default `/usr/bin`)
 * `node['freeswitch']['confpath']` - the path at which FreeSWITCH configuration is located (default `/etc/freeswitch`)
 * `node['freeswitch']['homedir']` - the path at which FreeSWITCH's home directory is' located (default `/var/lib/freeswitch`)
-* `node['freeswitch']['local_ip']` - the local IP FreeSWITCH listens on (default `127.0.0.1`)
+* `node['freeswitch']['local_ip']` - the local IP FreeSWITCH listens on (default `default['asterisk']['public_ip'] = node['ec2'] ? node['ec2']['public_ipv4'] : node['ipaddress']`)
 * `node['freeswitch']['domain']` - the domain at which FS acts as a registrar, etc (default `node['fqdn']`)
 * `node['freeswitch']['autoload_modules']` - the list of modules which FreeSWITCH should load on startup (default `%w[mod_console mod_logfile mod_enum mod_event_socket mod_rayo mod_sofia mod_loopback mod_commands mod_conference mod_db mod_dptools mod_expr mod_fifo mod_hash mod_esf mod_fsv mod_http_cache mod_dialplan_xml mod_g723_1 mod_g729 mod_amr mod_ilbc mod_speex mod_h26x mod_siren mod_sndfile mod_native_file mod_local_stream mod_tone_stream mod_ssml mod_flite mod_pocketsphinx mod_say]`)
 
