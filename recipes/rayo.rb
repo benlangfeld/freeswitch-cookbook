@@ -12,7 +12,7 @@ when 'ubuntu', 'debian'
 when 'redhat', 'centos', 'fedora'
   %w(
     freeswitch
-    freeswitch-mod-rayo
+    freeswitch-event-rayo
     freeswitch-lang-en
     freeswitch-sounds-music
     freeswitch-sounds-en-us-callie
