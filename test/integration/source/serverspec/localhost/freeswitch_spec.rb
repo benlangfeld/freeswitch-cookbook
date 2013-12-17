@@ -3,7 +3,15 @@ require 'spec_helper'
 describe 'FreeSWITCH' do
   describe user('freeswitch') do
     it { should exist }
-    it { should belong_to_group 'freeswitch' }
+    it do
+      expected_group = case property[:os_by_host]['localhost'][:family]
+      when /redhat/i
+        'daemon'
+      else
+        'freeswitch'
+      end
+      should belong_to_group expected_group
+    end
   end
 
   describe service('freeswitch') do
