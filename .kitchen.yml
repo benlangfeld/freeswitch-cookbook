@@ -16,6 +16,12 @@ platforms:
     box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_debian-7.1.0_provisionerless.box
     customize:
       memory: 1024
+- name: centos
+  driver_config:
+    box: opscode-centos-6.5
+    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box
+    customize:
+      memory: 1024
 
 suites:
 - name: package
