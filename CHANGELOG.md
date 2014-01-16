@@ -1,5 +1,8 @@
 # develop
 
+# 0.3.1
+  * Install rayo config in source install
+
 # 0.3.0
   * Add support for CentOS
   * Default local_ip to the primary interface's IP
