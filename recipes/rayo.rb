@@ -20,6 +20,7 @@ when 'redhat', 'centos', 'fedora'
   )
 end
 node.default['freeswitch']['package']['config_template'] = 'rayo'
+node.default['freeswitch']['source']['config_template'] = 'rayo'
 
 node.default['freeswitch']['source']['modules'] = %w[
 loggers/mod_console
