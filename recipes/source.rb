@@ -33,6 +33,7 @@ script "compile_freeswitch" do
     --with-recordingsdir=/var/lib/freeswitch/recordings
   make clean
   make
+  #{"make config-#{node['freeswitch']['source']['config_template']}" if node['freeswitch']['source']['config_template']}
   make install
 EOF
   not_if "test -f #{node['freeswitch']['binpath']}/freeswitch"
