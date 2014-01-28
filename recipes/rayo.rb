@@ -18,8 +18,8 @@ when 'redhat', 'centos', 'fedora'
     freeswitch-lang-en
     freeswitch-sounds-music
     freeswitch-sounds-en-us-callie
-    freeswitch-mod-flite
-    freeswitch-mod-pocketsphinx
+    freeswitch-asrtts-flite
+    freeswitch-asrtts-pocketsphinx
     freeswitch-config-rayo
   )
 end
