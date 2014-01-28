@@ -1,4 +1,5 @@
 # develop
+  * Ensure that mod_ssml, mod_flite and mod_pocketsphinx get installed for a Rayo server
 
 # 0.3.1
   * Install rayo config in source install
