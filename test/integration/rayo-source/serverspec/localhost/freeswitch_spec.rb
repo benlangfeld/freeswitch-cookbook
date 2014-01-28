@@ -57,4 +57,16 @@ describe 'FreeSWITCH' do
   describe command('fs_cli -x "reload mod_rayo"') do
     it { should return_stdout /\+OK module loaded/ }
   end
+
+  describe command('fs_cli -x "reload mod_ssml"') do
+    it { should return_stdout /\+OK module loaded/ }
+  end
+
+  describe command('fs_cli -x "reload mod_flite"') do
+    it { should return_stdout /\+OK module loaded/ }
+  end
+
+  describe command('fs_cli -x "reload mod_pocketsphinx"') do
+    it { should return_stdout /\+OK module loaded/ }
+  end
 end

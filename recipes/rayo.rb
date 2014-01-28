@@ -7,6 +7,8 @@ when 'ubuntu', 'debian'
     freeswitch-lang
     freeswitch-music
     freeswitch-sounds
+    freeswitch-mod-flite
+    freeswitch-mod-pocketsphinx
     freeswitch-conf-rayo
   )
 when 'redhat', 'centos', 'fedora'
@@ -16,6 +18,8 @@ when 'redhat', 'centos', 'fedora'
     freeswitch-lang-en
     freeswitch-sounds-music
     freeswitch-sounds-en-us-callie
+    freeswitch-asrtts-flite
+    freeswitch-asrtts-pocketsphinx
     freeswitch-config-rayo
   )
 end
@@ -25,6 +29,8 @@ node.default['freeswitch']['source']['config_template'] = 'rayo'
 node.default['freeswitch']['source']['modules'] = %w[
 loggers/mod_console
 loggers/mod_logfile
+asr_tts/mod_flite
+asr_tts/mod_pocketsphinx
 applications/mod_cluechoo
 applications/mod_commands
 applications/mod_conference
