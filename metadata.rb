@@ -11,7 +11,7 @@ recipe "freeswitch::package", "Install FreeSWITCH from a package"
 recipe "freeswitch::source", "Compile and install FreeSWITCH from source"
 
 depends 'apt', '~> 2.2'
-depends 'yum', '~> 2.2'
+depends 'yum', '~> 3.1'
 
 supports "debian", ">= 6.0"
 supports "ubuntu", ">= 12.04"
