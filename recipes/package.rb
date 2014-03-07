@@ -23,9 +23,9 @@ when 'ubuntu', 'debian'
   end
 when 'redhat', 'centos', 'fedora'
   yum_repository 'freeswitch' do
-    repo_name 'freeswitch'
     description "FreeSWITCH repo"
     url node['freeswitch']['package']['repo']['url']
+    gpgcheck false
     only_if { node['freeswitch']['package']['repo']['enable'] }
   end
 

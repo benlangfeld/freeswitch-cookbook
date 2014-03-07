@@ -1,5 +1,8 @@
 # develop
 
+# 0.4.0
+  * Bump to yum 3.x cookbook
+
 # 0.3.2
   * Ensure that mod_ssml, mod_flite and mod_pocketsphinx get installed for a Rayo server
 
