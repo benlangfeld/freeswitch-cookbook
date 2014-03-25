@@ -1,27 +1,16 @@
 ---
-driver_plugin: vagrant
-driver_config:
-  require_chef_omnibus: true
+driver:
+  name: vagrant
+  customize:
+    memory: 1024
+
+provisioner:
+  name: chef_zero
 
 platforms:
-- name: tdb-ubuntu
-  driver_config:
-    box: tdb-ubuntu1204-v9
-    box_url: http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-ubuntu1204.box
-    customize:
-      memory: 1024
-- name: debian
-  driver_config:
-    box: debian
-    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_debian-7.1.0_provisionerless.box
-    customize:
-      memory: 1024
-- name: centos
-  driver_config:
-    box: opscode-centos-6.5
-    box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box
-    customize:
-      memory: 1024
+  - name: ubuntu-12.04
+  - name: debian-7.4
+  - name: centos-6.5
 
 suites:
 - name: package
