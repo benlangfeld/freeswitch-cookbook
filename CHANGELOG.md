@@ -1,4 +1,7 @@
 # develop
+  * Only place config templates on initial installation. Avoids unnecessarily bouncing config and restarting FreeSWITCH on every run.
+  * Speed up the source build
+  * Add additional development pkgs needed by FS master
 
 # 0.4.0
   * Bump to yum 3.x cookbook
