@@ -14,7 +14,8 @@ platforms:
 
 suites:
 - name: package
-  run_list: ['recipe[freeswitch]']
+  run_list:
+    - recipe[freeswitch]
   attributes: {
     freeswitch: {
       local_ip: '0.0.0.0',
@@ -22,7 +23,8 @@ suites:
     }
   }
 - name: source
-  run_list: ['recipe[freeswitch]']
+  run_list:
+    - recipe[freeswitch]
   attributes: {
     freeswitch: {
       install_method: 'source',
@@ -31,7 +33,8 @@ suites:
     }
   }
 - name: rayo
-  run_list: ['recipe[freeswitch::rayo]']
+  run_list:
+    - recipe[freeswitch::rayo]
   attributes: {
     freeswitch: {
       local_ip: '0.0.0.0',
@@ -39,7 +42,8 @@ suites:
     }
   }
 - name: rayo-source
-  run_list: ['recipe[freeswitch::rayo]']
+  run_list:
+    - recipe[freeswitch::rayo]
   attributes: {
     freeswitch: {
       install_method: 'source',
