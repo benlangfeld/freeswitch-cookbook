@@ -18,6 +18,11 @@ when 'ubuntu', 'debian'
     libsqlite3-dev
     bison
     libasound2-dev
+    libcurl4-openssl-dev
+    libpcre3-dev
+    libspeex-dev
+    libspeexdsp-dev
+    libreadline6-dev
   ]
 when 'redhat', 'centos', 'fedora'
   %w[

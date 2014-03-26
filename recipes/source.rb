@@ -18,7 +18,7 @@ script "compile_freeswitch" do
   cwd "/usr/local/src/freeswitch"
   code <<-EOF
   ./bootstrap.sh
-  ./configure --prefix=/usr --localstatedir=/var \
+  ./configure -C --prefix=/usr --localstatedir=/var \
     --sysconfdir=/etc/freeswitch \
     --with-modinstdir=/usr/lib/freeswitch/mod \
     --with-rundir=/var/run/freeswitch \

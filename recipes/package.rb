@@ -1,5 +1,7 @@
 case node['platform']
 when 'ubuntu', 'debian'
+  include_recipe 'apt'
+
   apt_repository 'freeswitch' do
     uri node['freeswitch']['package']['repo']['url']
     distribution node['freeswitch']['package']['repo']['distro']
@@ -16,10 +18,12 @@ when 'ubuntu', 'debian'
   directory "/etc/freeswitch" do
     owner node['freeswitch']['user']
     group node['freeswitch']['group']
+    notifies :run, 'execute[install_fs_config]', :immediately
   end
 
   execute "install_fs_config" do
     command "cp -a /usr/share/freeswitch/conf/#{node['freeswitch']['package']['config_template']}/* #{node['freeswitch']['confpath']} && chown -R #{node['freeswitch']['user']}:#{node['freeswitch']['group']} #{node['freeswitch']['confpath']}"
+    action :nothing
   end
 when 'redhat', 'centos', 'fedora'
   yum_repository 'freeswitch' do
