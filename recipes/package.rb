@@ -1,5 +1,7 @@
 case node['platform']
 when 'ubuntu', 'debian'
+  include_recipe 'apt'
+
   apt_repository 'freeswitch' do
     uri node['freeswitch']['package']['repo']['url']
     distribution node['freeswitch']['package']['repo']['distro']
