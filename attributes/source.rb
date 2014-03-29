@@ -8,9 +8,9 @@ when 'ubuntu', 'debian'
     g++
     git-core
     libjpeg62-dev
-    libncurses5-dev
     libtool
     make
+    libncurses5-dev
     python-dev
     gawk
     pkg-config
@@ -23,6 +23,7 @@ when 'ubuntu', 'debian'
     libspeex-dev
     libspeexdsp-dev
     libreadline6-dev
+    libedit-dev
   ]
 when 'redhat', 'centos', 'fedora'
   %w[
@@ -34,6 +35,17 @@ when 'redhat', 'centos', 'fedora'
     libtool
     make
     ncurses-devel
+    python-devel
+    gawk
+    pkgconfig
+    gnutls
+    sqlite-devel
+    bison
+    libcurl-devel
+    pcre-devel
+    speex-devel
+    readline-devel
+    libedit-devel
   ]
 end
 
