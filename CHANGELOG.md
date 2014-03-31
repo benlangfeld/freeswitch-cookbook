@@ -1,5 +1,8 @@
 # develop
 
+# 0.4.2
+  * Update source build dependencies
+
 # 0.4.1
   * Only place config templates on initial installation. Avoids unnecessarily bouncing config and restarting FreeSWITCH on every run.
   * Speed up the source build
