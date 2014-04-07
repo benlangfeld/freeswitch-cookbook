@@ -2,7 +2,7 @@ require "chef/resource"
 
 use_inline_resources
 
-action :create do
+action :add do
   reload_resource
   template_resource :create
 end

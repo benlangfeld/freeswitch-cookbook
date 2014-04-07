@@ -1,4 +1,4 @@
-actions :create, :remove
+actions :add, :remove
 
 attribute :id,                          :kind_of => String, :name_attribute => true
 attribute :directory,                   :kind_of => String, :default => 'default'
@@ -10,5 +10,5 @@ attribute :cookbook,                    :kind_of => String, :default => 'freeswi
 
 def initialize(*args)
   super
-  @action = :create
+  @action = :add
 end
