@@ -1,4 +1,6 @@
 # develop
+
+# 0.5.0
   * Allow creating FS users (directory entries) via a LWRP
 
 # 0.4.2
