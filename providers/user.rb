@@ -11,7 +11,7 @@ private
 
 def reload_resource
   execute 'freeswitch-reloadxml' do
-    command 'fs_cli -x "reloadxml"'
+    command 'fs_cli -x "reloadxml" || true'
     action :nothing
   end
 end
