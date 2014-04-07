@@ -43,3 +43,11 @@ suites:
       install_method: 'source'
       local_ip: '0.0.0.0'
       domain: 'foo.bar.com'
+- name: lwrp
+  run_list:
+    - recipe[freeswitch]
+    - recipe[freeswitch-test::lwrp]
+  attributes: {
+    freeswitch: {
+      local_ip: '0.0.0.0',
+      domain: 'foo.bar.com'

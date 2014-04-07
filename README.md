@@ -42,6 +42,55 @@ Add `recipe[freeswitch]` to your node's run list
 
 * `freeswitch` - Fetches and installs FreeSWITCH
 
+# Resources/Providers
+
+## `freeswitch_user`
+This LWRP provides an easy way to manage FreeSWITCH users (directory entries). FreeSWITCH XML config will be reloaded after a run which manipulates users.
+
+### Actions
+- :add: adds a user to the directory
+- :remove: removes a user from the directory
+
+### Attribute Parameters
+- id: The user's ID. May be alphanumeric, and defaults to the name of the resource.
+- directory: The name of the directory in which to place the user (must already exist). Defaults to `'default'`.
+- password: The user's password. Defaults to `$${default_password}`.
+- vm_password: The user's voicemail password. Defaults to `$${default_password}`.
+- effective_caller_id_name: The user's caller ID name. Defaults to `'Extension'`.
+- effective_caller_id_number: The user's caller ID number. Defaults to `$${outbound_caller_id}`.
+- cookbook: The name of the cookbook from which to fetch the user template. Defaults to this cookbook.
+- template: The name of the template to use for the user's configuration. Defaults to `user.xml.erb`.
+
+### Examples
+
+Add the `joebloggs` user:
+
+```ruby
+freeswitch_user 'joebloggs'
+```
+
+Add a user specifying all the possible attributes:
+
+```ruby
+freeswitch_user 'joebloggs' do |variable|
+  directory 'default'
+  password 'foobar'
+  vm_password 'barbaz'
+  effective_caller_id_name 'Joe Bloggs'
+  effective_caller_id_number 'joe@bloggs.com'
+  cookbook 'my-wrapper-cookbook'
+  template 'freeswitch-user.xml.erb'
+end
+```
+
+Remove the `joebloggs` user:
+
+```ruby
+freeswitch_user 'joebloggs' do
+  action :remove
+end
+```
+
 # Author
 
 [Ben Langfeld](@benlangfeld)

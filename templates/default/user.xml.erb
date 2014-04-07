@@ -1,0 +1,17 @@
+<include>
+  <user id="<%= @id %>">
+    <params>
+      <param name="password" value="<%= @password %>"/>
+      <param name="vm-password" value="<%= @vm_password %>"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="<%= @id %>"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="<%= @effective_caller_id_name %>"/>
+      <variable name="effective_caller_id_number" value="<%= @effective_caller_id_number %>"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id}"/>
+    </variables>
+  </user>
+</include>
