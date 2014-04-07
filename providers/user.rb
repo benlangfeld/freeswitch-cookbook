@@ -23,7 +23,7 @@ end
 
 def template_resource(exec_action)
   template ::File.join(node['freeswitch']['confpath'], 'directory', new_resource.directory, "#{new_resource.id}.xml") do
-    source    'user.xml.erb'
+    source    new_resource.template
     cookbook  new_resource.cookbook
     user      node['freeswitch']['user']
     group     node['freeswitch']['group']

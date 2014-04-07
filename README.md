@@ -59,6 +59,7 @@ This LWRP provides an easy way to manage FreeSWITCH users (directory entries). F
 - effective_caller_id_name: The user's caller ID name. Defaults to `'Extension'`.
 - effective_caller_id_number: The user's caller ID number. Defaults to `$${outbound_caller_id}`.
 - cookbook: The name of the cookbook from which to fetch the user template. Defaults to this cookbook.
+- template: The name of the template to use for the user's configuration. Defaults to `user.xml.erb`.
 
 ### Examples
 
@@ -77,6 +78,8 @@ freeswitch_user 'joebloggs' do |variable|
   vm_password 'barbaz'
   effective_caller_id_name 'Joe Bloggs'
   effective_caller_id_number 'joe@bloggs.com'
+  cookbook 'my-wrapper-cookbook'
+  template 'freeswitch-user.xml.erb'
 end
 ```
 
