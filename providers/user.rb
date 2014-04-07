@@ -7,6 +7,11 @@ action :create do
   template_resource :create
 end
 
+action :remove do
+  reload_resource
+  template_resource :delete
+end
+
 private
 
 def reload_resource

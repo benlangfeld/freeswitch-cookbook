@@ -1,4 +1,4 @@
-actions :create
+actions :create, :remove
 
 attribute :id,                          :kind_of => String, :name_attribute => true
 attribute :directory,                   :kind_of => String, :default => 'default'

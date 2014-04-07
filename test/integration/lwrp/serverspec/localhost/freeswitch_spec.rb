@@ -53,4 +53,8 @@ describe 'FreeSWITCH' do
   describe command('sudo fs_cli -x "list_users user joebloggs"') do
     it { should return_stdout %r{joebloggs\|default\|foo.bar.com\|default\|error\/user_not_registered\|\|Joe Bloggs\|joe@bloggs\.com} }
   end
+
+  describe command('sudo fs_cli -x "list_users user badguy"') do
+    it { should return_stdout "userid|context|domain|group|contact|callgroup|effective_caller_id_name|effective_caller_id_number\n\n+OK" }
+  end
 end
