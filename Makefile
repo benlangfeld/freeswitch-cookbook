@@ -1,3 +1,3 @@
 default:
 	bundle update
-	thor foodcritic:lint --epic-fail any && kitchen test -p --destroy=always
+	bundle exec thor foodcritic:lint --epic-fail any && bundle exec kitchen test --parallel --destroy=always
