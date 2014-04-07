@@ -47,7 +47,7 @@ suites:
   run_list:
     - recipe[freeswitch]
     - recipe[freeswitch-test::lwrp]
-  attributes: {
-    freeswitch: {
-      local_ip: '0.0.0.0',
+  attributes:
+    freeswitch:
+      local_ip: '0.0.0.0'
       domain: 'foo.bar.com'
