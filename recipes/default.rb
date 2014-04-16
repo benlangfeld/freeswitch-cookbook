@@ -15,6 +15,7 @@ template "#{node['freeswitch']['confpath']}/vars.xml" do
   cookbook node['freeswitch']['vars_template_cookbook']
   mode 0644
   variables local_ip_v4: node['freeswitch']['local_ip'], domain: node['freeswitch']['domain']
+  notifies :reload, "service[#{node['freeswitch']['service']}]"
 end
 
 # Set modules to autoload

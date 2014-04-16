@@ -81,16 +81,14 @@ case "$1" in
         ;;
     status)
         status $PROG_NAME
-  RETVAL=$?
+        RETVAL=$?
         ;;
     restart)
         stop
         start
         ;;
     reload)
-#        <cause the service configuration to be reread, either with
-#        kill -HUP or by restarting the daemons, in a manner similar
-#        to restart above>
+        fs_cli -x "reloadxml" || true
         ;;
     condrestart)
         [ -f $PID_FILE ] && restart || :
