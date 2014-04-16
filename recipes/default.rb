@@ -12,6 +12,7 @@ template "#{node['freeswitch']['confpath']}/vars.xml" do
   owner node['freeswitch']['user']
   group node['freeswitch']['group']
   source node['freeswitch']['vars_template']
+  cookbook node['freeswitch']['vars_template_cookbook']
   mode 0644
   variables local_ip_v4: node['freeswitch']['local_ip'], domain: node['freeswitch']['domain']
 end

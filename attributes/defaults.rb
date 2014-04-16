@@ -16,6 +16,7 @@ default['freeswitch']['homedir']  = '/var/lib/freeswitch'
 default['freeswitch']['domain'] = node['fqdn']
 default['freeswitch']['local_ip'] = node['ec2'] ? node['ec2']['public_ipv4'] : node['ipaddress']
 default['freeswitch']['vars_template'] = "vars.xml.erb"
+default['freeswitch']['vars_template_cookbook'] = "freeswitch"
 
 default['freeswitch']['autoload_modules'] = %w[
   mod_console

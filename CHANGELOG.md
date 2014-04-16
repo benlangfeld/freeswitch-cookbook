@@ -1,4 +1,5 @@
 # develop
+  * Allow specifying the cookbook from which to load the vars template
 
 # 0.5.0
   * Allow creating FS users (directory entries) via a LWRP
