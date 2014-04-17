@@ -39,12 +39,6 @@ EOF
   not_if "test -f #{node['freeswitch']['binpath']}/freeswitch"
 end
 
-# install init script
-template "/etc/init.d/freeswitch" do
-  source "freeswitch.init.erb"
-  mode 0755
-end
-
 # install defaults
 template "/etc/default/freeswitch" do
   source "freeswitch.default.erb"
@@ -81,10 +75,4 @@ end
     owner node['freeswitch']['user']
     group node['freeswitch']['group']
   end
-end
-
-# define service
-service node['freeswitch']['service'] do
-  supports :restart => true, :start => true
-  action ['enable']
 end
