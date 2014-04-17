@@ -77,9 +77,7 @@ do_stop() {
 }
 
 do_reload() {
-  start-stop-daemon --stop --quiet \
-    --pidfile $PIDFILE --name $NAME --user $USER \
-    --signal HUP
+  fs_cli -x "reloadxml" || true
 }
 
 case "$1" in
