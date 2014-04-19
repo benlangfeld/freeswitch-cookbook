@@ -32,7 +32,7 @@ Add `recipe[freeswitch]` to your node's run list
 * `node['freeswitch']['package']['repo']['distro']` - the distro to select from the repo (default `wheezy`)
 * `node['freeswitch']['package']['repo']['branches']` - the branches of the repo to import (default `%w(main)`)
 * `node['freeswitch']['package']['repo']['keyserver']` - the keyserver against which to auth the repo (default `pool.sks-keyservers.net`)
-* `node['freeswitch']['package']['repo']['key']` - the repo's public GPG key (default `D76EDC7725E010CF`)
+* `node['freeswitch']['package']['repo']['key']` - the repo's public GPG key (default `0xD76EDC7725E010CF`)
 
 ## Source install attributes
 * `node['freeswitch']['source']['git_uri']` - the URI of the FreeSWITCH git repository to use for installation (default `git://git.freeswitch.org/freeswitch.git`)
