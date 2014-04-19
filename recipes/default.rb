@@ -1,13 +1,18 @@
-template "/etc/init.d/freeswitch" do
-  source "freeswitch.init.erb"
-  mode 0755
-end
-
 case node['freeswitch']['install_method']
 when 'package'
   include_recipe 'freeswitch::package'
 when 'source'
   include_recipe 'freeswitch::source'
+end
+
+template "/etc/default/freeswitch" do
+  source "freeswitch.default.erb"
+  mode 0644
+end
+
+template "/etc/init.d/freeswitch" do
+  source "freeswitch.init.erb"
+  mode 0755
 end
 
 service node['freeswitch']['service'] do

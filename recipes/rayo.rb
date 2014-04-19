@@ -3,7 +3,6 @@ when 'ubuntu', 'debian'
   %w(
     freeswitch-meta-vanilla
     freeswitch-mod-rayo
-    freeswitch-init
     freeswitch-lang
     freeswitch-music
     freeswitch-sounds

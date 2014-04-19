@@ -39,12 +39,6 @@ EOF
   not_if "test -f #{node['freeswitch']['binpath']}/freeswitch"
 end
 
-# install defaults
-template "/etc/default/freeswitch" do
-  source "freeswitch.default.erb"
-  mode 0644
-end
-
 group node['freeswitch']['group'] do
   action :create
 end

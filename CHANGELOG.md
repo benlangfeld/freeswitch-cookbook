@@ -1,5 +1,9 @@
 # develop
 
+# 0.6.1
+  * Prevent conflicts between our init script and the one provided by packages
+  * Prefix package key ID for reliable lookup
+
 # 0.6.0
   * Allow specifying the cookbook from which to load the vars template
   * Softly reload FreeSWITCH on config changes, rather than doing a full restart
