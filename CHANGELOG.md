@@ -1,4 +1,5 @@
 # develop
+  * Prevent conflicts between our init script and the one provided by packages
 
 # 0.6.0
   * Allow specifying the cookbook from which to load the vars template

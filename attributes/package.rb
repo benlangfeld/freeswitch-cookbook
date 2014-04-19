@@ -2,7 +2,6 @@ default['freeswitch']['package']['packages'] = case node['platform']
 when 'ubuntu', 'debian'
   %w(
     freeswitch-meta-vanilla
-    freeswitch-init
     freeswitch-lang
     freeswitch-music
     freeswitch-sounds
