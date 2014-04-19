@@ -1,4 +1,6 @@
 # develop
+
+# 0.6.1
   * Prevent conflicts between our init script and the one provided by packages
 
 # 0.6.0
