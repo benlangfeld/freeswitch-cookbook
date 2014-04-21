@@ -1,4 +1,5 @@
 # develop
+  * Fix reloading after user resource execution
 
 # 0.6.1
   * Prevent conflicts between our init script and the one provided by packages
