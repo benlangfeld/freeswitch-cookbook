@@ -1,5 +1,8 @@
 # develop
 
+# 0.6.2
+  * Fix reloading after user resource execution
+
 # 0.6.1
   * Prevent conflicts between our init script and the one provided by packages
   * Prefix package key ID for reliable lookup

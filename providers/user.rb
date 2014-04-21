@@ -13,6 +13,8 @@ end
 private
 
 def template_resource(exec_action)
+  service node['freeswitch']['service']
+
   template ::File.join(node['freeswitch']['confpath'], 'directory', new_resource.directory, "#{new_resource.id}.xml") do
     source    new_resource.template
     cookbook  new_resource.cookbook
