@@ -1,4 +1,6 @@
 # develop
+
+# 0.6.2
   * Fix reloading after user resource execution
 
 # 0.6.1
