@@ -1,4 +1,5 @@
 # develop
+  * Use a stored GPG key instead of relying on keyservers
 
 # 0.6.2
   * Fix reloading after user resource execution
