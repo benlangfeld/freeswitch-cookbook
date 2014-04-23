@@ -1,4 +1,6 @@
 # develop
+
+# 0.6.3
   * Use a stored GPG key instead of relying on keyservers
 
 # 0.6.2
