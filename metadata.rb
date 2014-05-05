@@ -4,7 +4,7 @@ maintainer_email "ops@mojolingo.com"
 license          "Apache 2.0"
 description      "Installs/Configures FreeSWITCH"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "0.6.3"
+version          "0.6.4"
 
 recipe "freeswitch", "Install FreeSWITCH and configure"
 recipe "freeswitch::package", "Install FreeSWITCH from a package"

@@ -69,4 +69,8 @@ describe 'FreeSWITCH' do
   describe command('fs_cli -x "reload mod_pocketsphinx"') do
     it { should return_stdout /\+OK module loaded/ }
   end
+
+  describe command('fs_cli -x "reload mod_http_cache"') do
+    it { should return_stdout /\+OK module loaded/ }
+  end
 end
