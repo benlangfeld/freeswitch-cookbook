@@ -8,6 +8,7 @@ when 'ubuntu', 'debian'
     freeswitch-sounds
     freeswitch-mod-flite
     freeswitch-mod-pocketsphinx
+    freeswitch-mod-http-cache
     freeswitch-conf-rayo
   )
 when 'redhat', 'centos', 'fedora'
@@ -19,6 +20,7 @@ when 'redhat', 'centos', 'fedora'
     freeswitch-sounds-en-us-callie
     freeswitch-asrtts-flite
     freeswitch-asrtts-pocketsphinx
+    freeswitch-application-http-cache
     freeswitch-config-rayo
   )
 end
@@ -38,7 +40,7 @@ applications/mod_enum
 applications/mod_db
 applications/mod_fifo
 applications/mod_hash
-applications/mod_httapi
+applications/mod_http_cache
 applications/mod_expr
 applications/mod_esf
 applications/mod_fsv

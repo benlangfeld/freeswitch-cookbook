@@ -1,4 +1,5 @@
 # develop
+  * mod_http_cache is now correctly installed for Rayo servers
 
 # 0.6.3
   * Use a stored GPG key instead of relying on keyservers
