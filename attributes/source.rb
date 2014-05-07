@@ -24,6 +24,7 @@ when 'ubuntu', 'debian'
     libspeexdsp-dev
     libreadline6-dev
     libedit-dev
+    libldns-dev
   ]
 when 'redhat', 'centos', 'fedora'
   %w[
@@ -46,6 +47,7 @@ when 'redhat', 'centos', 'fedora'
     speex-devel
     readline-devel
     libedit-devel
+    ldns-devel
   ]
 end
 
