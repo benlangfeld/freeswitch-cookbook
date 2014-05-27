@@ -24,6 +24,8 @@ when 'redhat', 'centos', 'fedora'
     freeswitch-config-rayo
   )
 end
+node.default['freeswitch']['package']['version'] = nil
+
 node.default['freeswitch']['package']['config_template'] = 'rayo'
 node.default['freeswitch']['source']['config_template'] = 'rayo'
 

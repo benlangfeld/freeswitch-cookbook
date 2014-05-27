@@ -12,7 +12,7 @@ when 'ubuntu', 'debian'
   end
 
   node['freeswitch']['package']['packages'].each do |pkg|
-    package pkg
+    package pkg, node['freeswitch']['package']['version']
   end
 
   directory "/etc/freeswitch" do

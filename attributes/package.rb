@@ -16,6 +16,7 @@ when 'redhat', 'centos', 'fedora'
     freeswitch-config-vanilla
   )
 end
+default['freeswitch']['package']['version']           = nil
 default['freeswitch']['package']['config_template']   = 'vanilla'
 
 default['freeswitch']['package']['repo']['enable']    = true
