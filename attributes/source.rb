@@ -24,6 +24,9 @@ when 'ubuntu', 'debian'
     libspeexdsp-dev
     libreadline6-dev
     libedit-dev
+    uuid-dev
+    zlib1g-dev
+    libssl-dev
   ]
 when 'redhat', 'centos', 'fedora'
   %w[
@@ -46,6 +49,9 @@ when 'redhat', 'centos', 'fedora'
     speex-devel
     readline-devel
     libedit-devel
+    libuuid-devel
+    zlib-devel
+    openssl-devel
   ]
 end
 
