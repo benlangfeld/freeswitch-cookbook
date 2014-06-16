@@ -1,4 +1,5 @@
 # develop
+  * Remove all things Rayo related. This has been moved into a downstream cookbook at http://github.com/mojolingo/freeswitch-rayo-cookbook
 
 # 0.6.4
   * mod_http_cache is now correctly installed for Rayo servers
