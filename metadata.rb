@@ -7,8 +7,6 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.6.4"
 
 recipe "freeswitch", "Install FreeSWITCH and configure"
-recipe "freeswitch::package", "Install FreeSWITCH from a package"
-recipe "freeswitch::source", "Compile and install FreeSWITCH from source"
 
 depends 'apt', '~> 2.2'
 depends 'yum', '~> 3.1'
