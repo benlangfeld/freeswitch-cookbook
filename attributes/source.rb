@@ -1,4 +1,4 @@
-default['freeswitch']['source']['git_uri'] = "git://git.freeswitch.org/freeswitch.git"
+default['freeswitch']['source']['git_uri'] = "https://stash.freeswitch.org/scm/fs/freeswitch.git"
 default['freeswitch']['source']['git_branch'] = "v1.2.stable"
 default['freeswitch']['source']['dependencies'] = case node['platform']
 when 'ubuntu', 'debian'
