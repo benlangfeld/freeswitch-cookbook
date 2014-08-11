@@ -35,7 +35,7 @@ Add `recipe[freeswitch]` to your node's run list
 * `node['freeswitch']['package']['repo']['key']` - the repo's public GPG key (default `freeswitch.gpg`)
 
 ## Source install attributes
-* `node['freeswitch']['source']['git_uri']` - the URI of the FreeSWITCH git repository to use for installation (default `git://git.freeswitch.org/freeswitch.git`)
+* `node['freeswitch']['source']['git_uri']` - the URI of the FreeSWITCH git repository to use for installation (default `https://stash.freeswitch.org/scm/fs/freeswitch.git`)
 * `node['freeswitch']['source']['git_branch']` - the branch of the git repository to install from (default `v1.2.stable`)
 * `node['freeswitch']['source']['dependencies']` - the packages to be installed on which compilation depends (default `%w[autoconf automake g++ git-core libjpeg62-dev libncurses5-dev libtool make python-dev gawk pkg-config gnutls-bin libsqlite3-dev bison libasound2-dev]`)
 * `node['freeswitch']['source']['modules']` - the modules to compile (default `%w[loggers/mod_console loggers/mod_logfile loggers/mod_syslog applications/mod_commands applications/mod_conference applications/mod_dptools applications/mod_enum applications/mod_db applications/mod_hash applications/mod_http_cache applications/mod_expr applications/mod_esf applications/mod_fsv codecs/mod_g723_1 codecs/mod_amr codecs/mod_g729 codecs/mod_h26x codecs/mod_bv codecs/mod_ilbc codecs/mod_speex codecs/mod_siren dialplans/mod_dialplan_xml endpoints/mod_sofia endpoints/mod_loopback asr_tts/mod_flite asr_tts/mod_pocketsphinx event_handlers/mod_event_socket event_handlers/mod_cdr_csv event_handlers/mod_rayo formats/mod_native_file formats/mod_sndfile formats/mod_local_stream formats/mod_tone_stream formats/mod_ssml say/mod_say_en]`)
