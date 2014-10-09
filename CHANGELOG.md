@@ -1,4 +1,6 @@
 # develop
+
+# 0.7.0
   * Update URL for FreeSWITCH git repository (moved to Stash)
   * Add additional dev packages now required for source builds
   * Remove mod_enum which was breaking source builds
