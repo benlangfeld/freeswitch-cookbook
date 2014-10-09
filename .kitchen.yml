@@ -9,6 +9,7 @@ provisioner:
 
 platforms:
   - name: ubuntu-12.04
+  - name: ubuntu-14.04
   - name: debian-7.4
   - name: centos-6.5
 
@@ -23,21 +24,6 @@ suites:
 - name: source
   run_list:
     - recipe[freeswitch]
-  attributes:
-    freeswitch:
-      install_method: 'source'
-      local_ip: '0.0.0.0'
-      domain: 'foo.bar.com'
-- name: rayo
-  run_list:
-    - recipe[freeswitch::rayo]
-  attributes:
-    freeswitch:
-      local_ip: '0.0.0.0'
-      domain: 'foo.bar.com'
-- name: rayo-source
-  run_list:
-    - recipe[freeswitch::rayo]
   attributes:
     freeswitch:
       install_method: 'source'

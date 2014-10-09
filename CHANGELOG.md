@@ -1,5 +1,8 @@
 # develop
 
+# 1.0.0
+  * Remove all things Rayo related. This has been moved into a downstream cookbook at http://github.com/mojolingo/freeswitch-rayo-cookbook
+
 # 0.7.0
   * Update URL for FreeSWITCH git repository (moved to Stash)
   * Add additional dev packages now required for source builds
