@@ -21,7 +21,6 @@ default['freeswitch']['vars_template_cookbook'] = "freeswitch"
 default['freeswitch']['autoload_modules'] = %w[
   mod_console
   mod_logfile
-  mod_enum
   mod_cdr_csv
   mod_event_socket
   mod_sofia

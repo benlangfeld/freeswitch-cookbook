@@ -1,4 +1,4 @@
-default['freeswitch']['source']['git_uri'] = "git://git.freeswitch.org/freeswitch.git"
+default['freeswitch']['source']['git_uri'] = "https://stash.freeswitch.org/scm/fs/freeswitch.git"
 default['freeswitch']['source']['git_branch'] = "v1.2.stable"
 default['freeswitch']['source']['dependencies'] = case node['platform']
 when 'ubuntu', 'debian'
@@ -24,6 +24,9 @@ when 'ubuntu', 'debian'
     libspeexdsp-dev
     libreadline6-dev
     libedit-dev
+    uuid-dev
+    zlib1g-dev
+    libssl-dev
   ]
 when 'redhat', 'centos', 'fedora'
   %w[
@@ -46,6 +49,9 @@ when 'redhat', 'centos', 'fedora'
     speex-devel
     readline-devel
     libedit-devel
+    libuuid-devel
+    zlib-devel
+    openssl-devel
   ]
 end
 
@@ -56,7 +62,6 @@ applications/mod_cluechoo
 applications/mod_commands
 applications/mod_conference
 applications/mod_dptools
-applications/mod_enum
 applications/mod_db
 applications/mod_fifo
 applications/mod_hash

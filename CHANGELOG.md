@@ -1,5 +1,10 @@
 # develop
 
+# 0.7.0
+  * Update URL for FreeSWITCH git repository (moved to Stash)
+  * Add additional dev packages now required for source builds
+  * Remove mod_enum which was breaking source builds
+
 # 0.6.4
   * mod_http_cache is now correctly installed for Rayo servers
 
