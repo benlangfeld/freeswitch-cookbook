@@ -24,7 +24,7 @@ describe 'FreeSWITCH' do
   end
 
   describe command('fs_cli -x "version"') do
-    it { should return_stdout /FreeSWITCH Version 1.2/ }
+    it { should return_stdout /FreeSWITCH Version 1.2.22/ }
   end
 
   describe port(5060) do
