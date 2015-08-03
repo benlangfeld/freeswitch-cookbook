@@ -7,8 +7,8 @@ when 'ubuntu', 'debian'
     automake
     g++
     git-core
-    libjpeg62-dev
-    libtool
+    libjpeg-dev
+    libtool-bin
     make
     libncurses5-dev
     python-dev

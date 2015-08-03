@@ -17,6 +17,8 @@ script "compile_freeswitch" do
   interpreter "/bin/bash"
   cwd "/usr/local/src/freeswitch"
   code <<-EOF
+  # Avoid the Chef-provided version of libtool
+  export PATH=/usr/local/bin:/usr/bin:/bin
   ./bootstrap.sh
   ./configure -C --prefix=/usr --localstatedir=/var \
     --sysconfdir=/etc/freeswitch \
