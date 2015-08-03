@@ -22,6 +22,7 @@ when 'ubuntu', 'debian'
     libpcre3-dev
     libspeex-dev
     libspeexdsp-dev
+    flite1-dev
     libreadline6-dev
     libedit-dev
     uuid-dev
